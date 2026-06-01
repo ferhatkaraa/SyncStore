@@ -24,10 +24,6 @@ int main() {
     signal_function();
     printf("[MAIN] Sinyal yonetimi kuruldu.\n");
 
-    /* ===== ADIM 1B: Asenkron klavye thread'ini baslat ===== */
-    sinyal_klavye_baslat();
-    printf("[MAIN] Asenkron klavye dinlemesi baslatildi.\n");
-
     /* ===== ADIM 2: Paylaşimlı bellek oluştur ===== */
     shmid = shmget(IPC_PRIVATE, sizeof(SharedData), IPC_CREAT | 0666);
     if (shmid < 0) {
@@ -44,6 +40,10 @@ int main() {
 
     /* Paylaşımlı bellek başlangıç değerlerini set et */
     shared_data->count = 0;
+    shared_data->interval1 = 2;
+    shared_data->interval2 = 3;
+    shared_data->interval3 = 4;
+    shared_data->config_version = 1;
     printf("[MAIN] Paylaşimlı bellek oluşturuldu (shmid=%d, Size=%zu bytes).\n", 
            shmid, sizeof(SharedData));
 
@@ -84,11 +84,11 @@ int main() {
         else if (pid == 0) {
             /* ===== CHILD PROCESS ===== */
             if (i == 1) {
-                child1_function(i, shared_data, semid);
+                child1_function(i, shmid, semid);
             } else if (i == 2) {
-                child2_function(i, shared_data, semid);
+                child2_function(i, shmid, semid);
             } else if (i == 3) {
-                child3_function(i, shared_data, semid);
+                child3_function(i, shmid, semid);
             }
             exit(0);
         }
@@ -102,10 +102,23 @@ int main() {
     }
 
     /* ===== ADIM 6: Tum child'lar bitmesini bekle ===== */
+    /* ===== ADIM 5B: Yalnizca parent'ta asenkron klavye dinlemesi baslat ===== */
+    sinyal_klavye_baslat();
+    sinyal_config_baslat();
+    printf("[MAIN] Asenkron klavye dinlemesi baslatildi.\n");
+
     printf("[MAIN] Tum child'lar bitmesini bekliyorum...\n");
     for (i = 0; i < 3; i++) {
         int status;
         pid_t terminated_pid = wait(&status);
+        if (terminated_pid < 0) {
+            if (errno == ECHILD) {
+                printf("[MAIN] Beklenecek child kalmadi.\n");
+                break;
+            }
+            perror("wait");
+            break;
+        }
         printf("[MAIN] Child bitti (PID=%d)\n", terminated_pid);
     }
 

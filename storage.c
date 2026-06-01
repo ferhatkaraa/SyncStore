@@ -20,14 +20,18 @@ static int find_key_index(SharedData *data, const char *key) {
 void kilitle(int semid) {
     // İşletim sistemine diyoruz ki: "Kalemi alacağım, eğer kalem başkasındaysa beni burada beklet."
     struct sembuf operasyon = {0, -1, 0}; 
-    semop(semid, &operasyon, 1);
+    if (semop(semid, &operasyon, 1) < 0) {
+        perror("kilitle semop");
+    }
 }
 
 // --- KALEMİ BIRAK (KİLİDİ AÇ) ---
 void kilidi_ac(int semid) {
     // İşletim sistemine diyoruz ki: "İşim bitti, kalemi masaya bırakıyorum, bekleyen varsa gelsin."
     struct sembuf operasyon = {0, 1, 0};
-    semop(semid, &operasyon, 1);
+    if (semop(semid, &operasyon, 1) < 0) {
+        perror("kilidi_ac semop");
+    }
 }
 
 // --- VERİ YAZMA ---

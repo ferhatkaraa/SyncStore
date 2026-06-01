@@ -16,6 +16,10 @@ typedef struct {
 typedef struct {
     KeyValue db[100]; // 100 adet kayıt kapasitesi
     int count;        // Şu an içinde kaç tane kayıt var?
+    int interval1;    // child1 için dinamik periyot
+    int interval2;    // child2 için dinamik periyot
+    int interval3;    // child3 için dinamik periyot
+    int config_version; // konfigürasyon versiyonu
 } SharedData;
 
 // Fonksiyon prototipleri (Diğer dosyalar bu fonksiyonları tanısın diye)

@@ -2,26 +2,38 @@
 #include <time.h>
 #include <unistd.h>
 #include <signal.h>
+#include <sys/shm.h>
+#include "child2.h"
 #include "storage.h"
 
 /* Child2'in çalıştığında yapması gereken ana task */
-void child2_function(int param, SharedData *data, int semid) {
+void child2_function(int param, int shmid, int semid) {
     if (param != 2) {
         printf("Child2: Parametre %d - Calismiyorum (sadece 2 kabul edilir)\n", param);
+        return;
+    }
+
+    SharedData *data = (SharedData *)shmat(shmid, NULL, 0);
+    if (data == (void *)-1) {
+        perror("Child2 shmat");
         return;
     }
     
     printf("Child2 (PID %d): Storage gorevini basliyorum...\n", (int)getpid());
     child2_storage_task(param, data, semid);
+
+    if (shmdt(data) < 0) {
+        perror("Child2 shmdt");
+    }
 }
 
 /* Child2'in storage üzerinde yapacağı işler */
 void child2_storage_task(int param, SharedData *data, int semid) {
     const int child_id = 2;
-    const int interval = 3;  /* 3 saniyede bir işlem */
     const char key[] = "ortak_depo";
     time_t start_time;
     int operation_count = 0;
+    int interval;
 
     if (param != child_id) {
         printf("Child2: Parametre %d - Calismiyorum (sadece 2 kabul edilir)\n", param);
@@ -33,12 +45,16 @@ void child2_storage_task(int param, SharedData *data, int semid) {
         return;
     }
 
+    interval = data->interval2;
+    if (interval <= 0) interval = 3;
     printf("Child2 (PID %d): 60 saniyelik gorev basladi. Periyot: %d saniye.\n", 
            (int)getpid(), interval);
     start_time = time(NULL);
 
     while (time(NULL) - start_time < 60) {
         int elapsed = (int)(time(NULL) - start_time);
+        interval = data->interval2;
+        if (interval <= 0) interval = 3;
 
         /* İlk 30 saniye: okuma işlemi */
         if (elapsed < 30) {

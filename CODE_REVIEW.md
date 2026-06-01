@@ -1,313 +1,108 @@
-# 📊 IPC Proje - Kod İnceleme ve Düzeltme Raporu
+# Kod Inceleme Raporu
 
-## 🎯 **Kontrol Listesi: Tüm Gereksinimler Karşılanmış**
+Bu rapor, mevcut kodun son durumuna gore hazirlanmistir.
 
-### ✅ **1. Signal Dosyası - Farklı Sinyallere Özellikler**
+## Genel Durum
 
-| Sinyal | Kodu | Özellik | Durum |
-|--------|------|---------|-------|
-| **SIGINT** | 2 | Graceful shutdown - tüm child'ları kapat | ✅ |
-| **SIGTERM** | 15 | Aynı şekilde graceful shutdown | ✅ |
-| **SIGUSR1** | 10 | **Reset** - tüm sinyalleri sıfırla | ✅ |
-| **SIGUSR2** | 12 | İstatistik - aktif child'ları göster | ✅ |
-| **SIGHUP** | 1 | Config reload | ✅ |
+Proje, parent-child process mimarisi ile System V shared memory ve semaphore kullanan bir anahtar-deger deposu ornegidir. Parent IPC kaynaklarini olusturur, 3 child fork eder, child'lar shared memory'ye baglanir ve `storage_read()` / `storage_write()` fonksiyonlari uzerinden ortak depoya erisir.
 
-**Implementasyon:**
-- `signal_function()`: Tüm handler'ları kurar
-- `reset_handler()`: SIGUSR1 alınca tüm child'lara reset sinyali gönderir
-- `kapatma_handler()`: SIGINT/SIGTERM alınca graceful shutdown
-- `istatistik_handler()`: SIGUSR2 alınca PID listesini gösterir
+## Derleme Uyarisi Duzeltmesi
 
----
+Gorulen uyarilar:
 
-### ✅ **2. Reset Metodu - Tüm Sinyalleri Eski Haline Getirme**
-
-**Fonksiyonlar:**
-```c
-void sinyal_reset_tum_sinyaller(void);    // Normal kod tarafından çağrılabilir
-void reset_handler(int sig);               // Handler içinde çalışır (SIGUSR1)
+```text
+implicit declaration of function 'child1_storage_task'
+conflicting types for 'child1_storage_task'
 ```
 
-**Mekanizması:**
-- SIGUSR1 sinyali alındığında tüm child'lara broadcast yapılır
-- Child process'ler SIGUSR1 handler'ında "reset" mesajını alır
-- State'leri sıfırlanabilir (gelecek genişletme için hazır)
+Sebep:
 
----
+`child1.c`, `child2.c`, `child3.c` icinde `child*_storage_task()` fonksiyonlari cagrildigi noktada derleyici henuz prototipi gormuyordu.
 
-### ✅ **3. Asenkron Klavye - Reset Sinyali Gönderimi**
+Duzeltme:
 
-**Thread Fonksiyonu:**
-```c
-static void* keyboard_thread_func(void *arg);
-void sinyal_klavye_baslat(void);
-```
+- `child1.c` icine `#include "child1.h"` eklendi.
+- `child2.c` icine `#include "child2.h"` eklendi.
+- `child3.c` icine `#include "child3.h"` eklendi.
 
-**Komutlar (Program Çalışırken):**
-```
-r / R → SIGUSR1 gönder (reset)
-s / S → SIGUSR2 gönder (istatistik)
-q / Q → SIGINT gönder (graceful shutdown)
-ENTER → Yardım mesajı
-```
+Bu header dosyalari ilgili `child*_storage_task()` prototiplerini icerir.
 
-**Uygulama:**
-- `pthread_create()` ile thread başlatılır
-- `pthread_detach()` ile thread'in kaynakları otomatik temizlenir
-- Main process'in PID'ine sinyaller gönderilir
+## IPC Tasarimi
 
----
+| Bilesen | Kod | Degerlendirme |
+| --- | --- | --- |
+| Shared memory | `shmget`, `shmat`, `shmdt`, `shmctl` | Parent olusturuyor, child'lar `shmid` ile baglaniyor |
+| Semaphore | `semget`, `semctl`, `semop` | Tek semaphore mutex gibi kullaniliyor |
+| Depo | `SharedData` | `db[100]`, `count`, interval ve config versiyon alanlari var |
+| Child lifecycle | `fork`, `wait` | Parent child'lari olusturup bekliyor |
+| Cleanup | `IPC_RMID` | Normal cikista kaynaklar temizleniyor |
 
-### ✅ **4. Graceful Shutdown Handler**
+## Storage Incelemesi
 
-**`kapatma_handler()` fonksiyonu:**
+`storage_write()`:
 
-```
-1. Parent/Child kontrolü:
-   - Child ise: sadece kendini _exit(0) ile kapat
-   - Parent ise: tüm child'ları kapat
+- Gecersiz pointer kontrolu yapar.
+- Semaphore ile kilit alir.
+- Key varsa mevcut slotu gunceller.
+- Key yoksa kapasite uygunsa yeni slot acar.
+- `value` ve `last_update` alanlarini yazar.
+- Kilidi birakir.
 
-2. Tüm child'lara SIGTERM gönder
+`storage_read()`:
 
-3. waitpid() ile her child'ı bekleri
+- Gecersiz pointer kontrolu yapar.
+- Semaphore ile kilit alir.
+- Key arar.
+- Bulursa degeri ve timestamp bilgisini yazdirir.
+- Bulamazsa `-1` doner.
+- Kilidi birakir.
 
-4. IPC kaynaklarını temizler:
-   - shmctl(shmid, IPC_RMID, NULL)
-   - semctl(semid, 0, IPC_RMID)
+Bu yapi, `count` ve `db` alanlari icin race condition riskini azaltir.
 
-5. Log dosyasını kapatır
+## Child Davranislari
 
-6. _exit(0) ile temiz çıkış
-```
+| Child | Periyot | 0-30 saniye | 30-60 saniye |
+| --- | ---: | --- | --- |
+| Child 1 | `interval1`, varsayilan 2 | Yazma | Okuma |
+| Child 2 | `interval2`, varsayilan 3 | Okuma | Yazma |
+| Child 3 | `interval3`, varsayilan 4 | Yazma | Okuma |
 
-**Özellikleri:**
-- Zombie process'ler bırakmaz ✅
-- Re-entrance protection (`g_kapaniyor` flag) ✅
-- Async-signal-safe fonksiyonlar kullanır ✅
-
----
-
-### ✅ **5. Main Process - Fork ve Child Başlatma**
-
-**`main.c` Akışı:**
-```c
-1. signal_function()           → Sinyal handler'larını kur
-2. sinyal_klavye_baslat()      → Asenkron keyboard thread
-3. shmget()                    → Shared memory oluştur
-4. shmat()                     → Process'e bağla
-5. semget()                    → Semaphore oluştur
-6. semctl(SETVAL, 1)           → Semaphore = 1 (açık)
-7. sinyal_kaynak_kaydet()      → Kaynakları signal module'e kaydet
-8. fork() x 3                  → 3 child process oluştur
-9. Waitpid() x 3               → Tüm child'ları bekle
-10. shmdt()                    → Shared memory'den ayrıl
-11. shmctl(IPC_RMID)           → Shared memory sil
-12. semctl(IPC_RMID)           → Semaphore sil
-```
-
-**Fork'ta parametreler:**
-```c
-child1_function(i, shared_data, semid);  // i=1
-child2_function(i, shared_data, semid);  // i=2
-child3_function(i, shared_data, semid);  // i=3
-```
-
----
-
-### ✅ **6. Storage - Race Condition Korunması**
-
-**Semaphore Kilitleme:**
-```c
-void kilitle(int semid) {
-    struct sembuf op = {0, -1, 0};   // -1 = decrement (lock)
-    semop(semid, &op, 1);
-}
-
-void kilidi_ac(int semid) {
-    struct sembuf op = {0, 1, 0};    // +1 = increment (unlock)
-    semop(semid, &op, 1);
-}
-```
-
-**Write işlemi:**
-```c
-kilitle(semid);           // Lock al
-// ... veri yazma ...
-kilidi_ac(semid);         // Lock bırak
-```
-
-**Read işlemi:**
-```c
-kilitle(semid);           // Lock al
-// ... veri okuma ...
-kilidi_ac(semid);         // Lock bırak
-```
-
-**Sonuç:** ✅ Race condition YAPILMADI - tüm accesses senkronize
-
----
-
-### ✅ **7. Child Processes - 60 Saniye Çalışma**
-
-**Her child'ın görev akışı:**
-
-**Child1 (2 saniye aralık):**
-- 0-30 saniye: Yazma (`storage_write()`)
-- 30-60 saniye: Okuma (`storage_read()`)
-
-**Child2 (3 saniye aralık):**
-- 0-30 saniye: Okuma (`storage_read()`)
-- 30-60 saniye: Yazma (`storage_write()`)
-
-**Child3 (4 saniye aralık):**
-- 0-30 saniye: Yazma (`storage_write()`)
-- 30-60 saniye: Okuma (`storage_read()`)
-
-**Uygulanmış şey:**
-```c
-time_t start_time = time(NULL);
-while (time(NULL) - start_time < 60) {
-    int elapsed = (int)(time(NULL) - start_time);
-    if (elapsed < 30) {
-        storage_write(data, semid, key, value, child_id);
-    } else {
-        storage_read(data, semid, key, child_id);
-    }
-    sleep(interval);
-}
-```
-
----
-
-## 🔧 **Teknik Detaylar**
-
-### **IPC Mekanizması**
-
-| Bileşen | Tür | Kod | Açıklama |
-|---------|-----|-----|----------|
-| SharedData | Struct | `struct { KeyValue db[100]; int count; }` | Anahtar-değer deposu |
-| shmid | Shared Memory | `shmget(IPC_PRIVATE, ...)` | Process'ler arasında bellek paylaşımı |
-| semid | Semaphore | `semget(IPC_PRIVATE, ...)` | Mutual exclusion (lock mekanizması) |
-
-### **Async-Signal-Safety**
-
-Sinyal handler'ında **sadece güvenli fonksiyonlar** kullanılır:
-```c
-✅ write()              → Dosya yazması
-✅ kill()               → Sinyal gönderme
-✅ waitpid()            → Process bekleme
-✅ _exit()              → Acil çıkış
-✅ shmctl()             → Shared memory silme
-✅ semctl()             → Semaphore silme
-❌ printf()             → GÜVENLI DEĞİL
-❌ malloc()             → GÜVENLI DEĞİL
-❌ fprintf()            → GÜVENLI DEĞİL
-```
-
-### **Thread Safety**
+Her child ayni key'i kullanir:
 
 ```c
-static volatile sig_atomic_t g_kapaniyor = 0;  // Atomic flag
-static pid_t g_child_pidler[MAX_CHILD];        // Parent thread'de yazma
+const char key[] = "ortak_depo";
 ```
 
-- Child PID listesine sadece parent yazıyor
-- Handler'ında okuma yapıyor → Veri yarışması YOK
+Bu, semaphore'un ortak kaynak uzerindeki etkisini gostermek icin uygundur.
 
----
+## Sinyal Incelemesi
 
-## 📝 **Dosya Değişiklikleri Özeti**
+Desteklenen sinyaller:
 
-### **Güncellenmiş Dosyalar:**
+| Sinyal | Davranis |
+| --- | --- |
+| `SIGINT` | Graceful shutdown |
+| `SIGTERM` | Graceful shutdown |
+| `SIGUSR1` | Reset broadcast |
+| `SIGUSR2` | Istatistik |
+| `SIGHUP` | Config reload istegi |
+| `SIGCHLD` | Biten child'lari toplama |
 
-1. **main.c**
-   - ➕ `#include <sys/ipc.h>, <sys/shm.h>, <sys/sem.h>`
-   - ➕ Shared memory oluşturma
-   - ➕ Semaphore oluşturma
-   - ➕ Child'lara `shared_data` ve `semid` parametreleri
-   - ➕ Kaynakları temizleme
+`kapatma_handler()` parent ve child ayrimini `getpid() != g_ana_pid` kontroluyle yapar. Bu onemlidir; child process IPC kaynaklarini silmeye calismaz.
 
-2. **sinyal.c**
-   - ➕ `#include <pthread.h>`
-   - ✏️ `yayin_handler()` → `reset_handler()` (SIGUSR1 reset)
-   - ➕ `keyboard_thread_func()` - asenkron input
-   - ➕ `sinyal_reset_tum_sinyaller()` - reset metodu
-   - ➕ `sinyal_klavye_baslat()` - thread başlatma
+## Config Reload
 
-3. **sinyal.h**
-   - ✏️ SIGUSR1 açıklaması: "Reset sinyali"
-   - ➕ `sinyal_reset_tum_sinyaller()` prototipi
-   - ➕ `sinyal_klavye_baslat()` prototipi
+`SIGHUP` handler'i dogrudan dosya okumaz. Bunun yerine `g_reload_config_request` flag'ini set eder. Config thread bu istegi gorunce `syncstore.conf` dosyasini okur, shared memory'ye baglanir, semaphore ile kilit alir ve interval alanlarini gunceller.
 
-4. **child1.c, child2.c, child3.c**
-   - ✏️ Fonksiyon signature: `(int param)` → `(int param, SharedData *data, int semid)`
-   - ➕ `shared_data` ve `semid` kullanımı
-   - ➕ `child*_storage_task()` çağrısı
-   - ➕ Detaylı log mesajları
+Bu tasarim, sinyal handler icinde agir ve guvensiz is yapmamak acisindan dogru yonde bir tercihtir.
 
-5. **child1.h, child2.h, child3.h**
-   - ✏️ Fonksiyon prototipi güncelleme
+## Dikkat Edilebilecek Noktalar
 
-### **Yeni Dosyalar:**
+- `storage_write()` icinde `kilitle()` hata alsa bile fonksiyon devam ediyor. Daha guclu hata yonetimi icin `kilitle()` basari/hata dondurebilir.
+- `sigchld_handler()` child'lari erken toplarsa `main.c` icindeki `wait()` bazen `ECHILD` gorebilir. Kod bu durumu kontrol ediyor.
+- Tum child'lar tek key kullaniyor. Coklu anahtar senaryosu istenirse child bazli key veya random key uretimi eklenebilir.
+- `printf()` child ve normal thread akisi icinde kullaniliyor; handler icinde ise `write()` tabanli yardimcilar tercih edilmis.
 
-- ✨ `Makefile` - GCC ile derleme
-- ✨ `COMPILE_GUIDE.md` - Derleme ve çalıştırma kılavuzu
-- ✨ `CODE_REVIEW.md` - Bu dosya
+## Sonuc
 
----
-
-## ✅ **Kod Kalitesi**
-
-| Kriter | Durum | Açıklama |
-|--------|-------|----------|
-| Syntax | ✅ | Tüm C kodu geçerli |
-| Logic | ✅ | IPC mekanizması doğru |
-| Thread-safety | ✅ | Semaphore kullanıyor |
-| Memory | ✅ | Kaynaklar temizleniyor |
-| Signals | ✅ | Async-signal-safe |
-| Errors | ✅ | Perror ve NULL checks |
-| Comments | ✅ | Detaylı açıklamalar |
-
----
-
-## 🎓 **Çalışan Özellikler**
-
-✅ Fork yapmak  
-✅ 3 child oluşturmak  
-✅ Paylaşımlı bellek ile IPC  
-✅ Semaphore ile senkronizasyon  
-✅ 60 saniye çalışma süresi  
-✅ Child'lar farklı aralıklarla çalışıyor (2s, 3s, 4s)  
-✅ Graceful shutdown (Ctrl+C)  
-✅ Tüm child'ları beklemek  
-✅ IPC kaynaklarını temizlemek  
-✅ **Reset sinyali (SIGUSR1)**  
-✅ **Asenkron klavye (r/s/q)**  
-✅ **5 farklı sinyal handler**  
-✅ **Race condition korunması**  
-
----
-
-## 🚀 **Kullanım Örneği**
-
-```bash
-# Derleme
-gcc -Wall -pthread -o program main.c sinyal.c storage.c child*.c -lpthread
-
-# Çalıştırma
-./program
-
-# Program çalışırken:
-r              # Reset sinyali gönder
-s              # İstatistik göster
-q              # Programı kapat (gracefully)
-
-# Veya başka terminalden:
-kill -USR1 <pid>   # Reset
-kill -USR2 <pid>   # İstatistik
-kill -TERM <pid>   # Graceful shutdown
-```
-
----
-
-**Proje Tamamlanmıştır! ✨**
+Mevcut kod, IPC anahtar-deger deposu, semaphore ile kritik bolge korumasi, graceful shutdown, reset/istatistik sinyalleri, SIGCHLD toplama ve SIGHUP config reload ozelliklerini birlikte gosteren calisir bir ornektir. Bildirilen implicit declaration uyarilari header include duzeltmesiyle giderilmistir.

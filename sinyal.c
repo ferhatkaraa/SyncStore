@@ -37,6 +37,7 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #include <sys/sem.h>
+#include "storage.h"
 
 #define MAX_CHILD   64
 #define LOG_DOSYASI "syncstore.log"
@@ -52,6 +53,9 @@ static int                g_shmid          = -1;  /* temizlenecek shared memory 
 static int                g_semid          = -1;  /* temizlenecek semaphore id */
 static int                g_log_fd         = -1;  /* log dosyasi fd (append) */
 static volatile sig_atomic_t g_kapaniyor   = 0;   /* tekrar girisi engeller */
+static volatile sig_atomic_t g_reload_config_request = 0; /* SIGHUP sonrası config reload istegi */
+
+#define KONFIG_DOSYASI "syncstore.conf"
 
 /* ============================================================
  *   Async-signal-safe yazdirma yardimcilari
@@ -180,6 +184,24 @@ static void istatistik_handler(int sig) {
 }
 
 /* ============================================================
+ *   EK OZELLIK: SIGCHLD handler - child'lari ivedilikle topla
+ * ============================================================ */
+static void sigchld_handler(int sig) {
+    (void)sig;
+    if (getpid() != g_ana_pid) return;
+
+    while (1) {
+        int status;
+        pid_t pid = waitpid(-1, &status, WNOHANG);
+        if (pid <= 0) break;
+
+        guvenli_yaz("[SERVER] SIGCHLD: child toplandi PID ");
+        guvenli_yaz_sayi((long)pid);
+        guvenli_yaz("\n");
+    }
+}
+
+/* ============================================================
  *   EK OZELLIK: Tum sinyalleri reset et (SIGUSR1)
  * ============================================================ */
 static void reset_handler(int sig) {
@@ -206,8 +228,111 @@ static void reset_handler(int sig) {
 static void konfig_handler(int sig) {
     (void)sig;
     if (getpid() != g_ana_pid) return;
-    guvenli_yaz("[SERVER] SIGHUP alindi -> konfigurasyon yeniden yuklenecek.\n");
-    /* Buraya ileride config dosyasi okuma eklenebilir. */
+    g_reload_config_request = 1;
+    guvenli_yaz("[SERVER] SIGHUP alindi -> konfigurasyon yenileme talebi kaydedildi.\n");
+}
+
+static int konfig_parse_line(const char *line, SharedData *data) {
+    if (strncmp(line, "interval1=", 10) == 0) {
+        data->interval1 = atoi(line + 10);
+        return 1;
+    }
+    if (strncmp(line, "interval2=", 10) == 0) {
+        data->interval2 = atoi(line + 10);
+        return 1;
+    }
+    if (strncmp(line, "interval3=", 10) == 0) {
+        data->interval3 = atoi(line + 10);
+        return 1;
+    }
+    return 0;
+}
+
+static int konfig_reload_shared_memory(void) {
+    FILE *f = fopen(KONFIG_DOSYASI, "r");
+    if (f == NULL) {
+        sinyal_log("Konfig dosyasi acilamadi.");
+        return -1;
+    }
+
+    SharedData new_config;
+    int changed = 0;
+    char line[128];
+
+    /* Varsayılan olarak mevcut değerleri koru */
+    new_config.interval1 = -1;
+    new_config.interval2 = -1;
+    new_config.interval3 = -1;
+
+    while (fgets(line, sizeof(line), f) != NULL) {
+        konfig_parse_line(line, &new_config);
+    }
+
+    fclose(f);
+
+    if (new_config.interval1 <= 0 && new_config.interval2 <= 0 && new_config.interval3 <= 0) {
+        sinyal_log("Konfig dosyasi icerigi gecerli degil veya degisiklik yok.");
+        return -1;
+    }
+
+    SharedData *data = (SharedData *)shmat(g_shmid, NULL, 0);
+    if (data == (void *)-1) {
+        sinyal_log("Paylasimli bellek baglanamadi konfig reload icin.");
+        return -1;
+    }
+
+    kilitle(g_semid);
+    if (new_config.interval1 > 0) {
+        data->interval1 = new_config.interval1;
+        changed = 1;
+    }
+    if (new_config.interval2 > 0) {
+        data->interval2 = new_config.interval2;
+        changed = 1;
+    }
+    if (new_config.interval3 > 0) {
+        data->interval3 = new_config.interval3;
+        changed = 1;
+    }
+    if (changed) {
+        data->config_version++;
+    }
+    kilidi_ac(g_semid);
+
+    if (shmdt(data) < 0) {
+        sinyal_log("Konfig reload sonrası shared memory detatch edilemedi.");
+    }
+
+    return changed ? 0 : -1;
+}
+
+static void *konfig_thread_func(void *arg) {
+    (void)arg;
+    sinyal_log("Konfig reload thread baslatildi.");
+
+    while (1) {
+        if (g_reload_config_request) {
+            g_reload_config_request = 0;
+            if (konfig_reload_shared_memory() == 0) {
+                sinyal_log("Konfig dosyasi basariyla yüklendi.");
+            } else {
+                sinyal_log("Konfig dosyasi yüklenemedi.");
+            }
+        }
+        sleep(1);
+    }
+    return NULL;
+}
+
+static void konfig_thread_baslat(void) {
+    pthread_t tid;
+    int ret = pthread_create(&tid, NULL, konfig_thread_func, NULL);
+    if (ret != 0) {
+        sinyal_log("Konfig thread olusturulamadi!");
+    } else {
+        pthread_detach(tid);
+        sinyal_log("Konfig thread baslatildi.");
+    }
 }
 
 /* ============================================================
@@ -240,6 +365,7 @@ void signal_function(void) {
     /* ZORUNLU sinyaller */
     handler_kur(SIGINT,  kapatma_handler,    0); /* Ctrl+C: blocking wait yapacagiz */
     handler_kur(SIGTERM, kapatma_handler,    0);
+    handler_kur(SIGCHLD, sigchld_handler,    1);
 
     /* EK ozellikler */
     handler_kur(SIGUSR1, reset_handler,      1);  /* Tum sinyalleri reset et */
@@ -267,6 +393,10 @@ void sinyal_kaynak_kaydet(int shmid, int semid) {
     g_shmid = shmid;
     g_semid = semid;
     sinyal_log("IPC kaynaklari kaydedildi (kapanista temizlenecek).");
+}
+
+void sinyal_config_baslat(void) {
+    konfig_thread_baslat();
 }
 
 /* ============================================================

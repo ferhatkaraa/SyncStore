@@ -1,97 +1,56 @@
 # Proje Tamamlama Durumu
 
-## ✅ Yapılanlar (Yeşil)
+## Tamamlananlar
 
-- [x] **main.c dosyası oluşturuldu** - Fork ile child process'leri oluşturuyor
-- [x] **child1.c dosyası oluşturuldu** - Parametre 1 kontrolü yapıyor
-- [x] **child2.c dosyası oluşturuldu** - Parametre 2 kontrolü yapıyor  
-- [x] **child3.c dosyası oluşturuldu** - Parametre 3 kontrolü yapıyor
-- [x] **sinyal.c dosyası oluşturuldu** - Temel sinyal fonksiyonu mevcut
-- [x] **storage.c dosyası oluşturuldu** - Semaphore ve paylaşımlı bellek fonksiyonları tam
-- [x] **storage.h dosyası oluşturuldu** - Veri yapıları ve prototipler tanımlandı
-- [x] **Tüm header dosyaları oluşturuldu** - child1.h, child2.h, child3.h, sinyal.h
-- [x] **Include'lar düzeltildi** - Tüm dosyalarda storage.h eklendi
-- [x] **README.md oluşturuldu** - Proje dokümantasyonu hazır
+- [x] `main.c` icinde shared memory `shmget()` ile olusturuluyor.
+- [x] `main.c` icinde shared memory `shmat()` ile parent adres alanina baglaniyor.
+- [x] `main.c` icinde semaphore `semget()` ile olusturuluyor.
+- [x] Semaphore `semctl(SETVAL, 1)` ile mutex gibi baslatiliyor.
+- [x] Parent 3 child process fork ediyor.
+- [x] Child process'lere `shmid` ve `semid` bilgileri aktariliyor.
+- [x] Child process'ler kendi iclerinde `shmat()` ile shared memory'ye baglaniyor.
+- [x] `storage.c` icinde `kilitle()` ve `kilidi_ac()` fonksiyonlari `semop()` kullaniyor.
+- [x] `storage_write()` key ekleme/guncelleme ve timestamp yazma islemi yapiyor.
+- [x] `storage_read()` key okuma ve bulunamama durumunu isliyor.
+- [x] `SharedData` icinde `KeyValue db[100]`, `count`, interval ve config version alanlari var.
+- [x] Child 1 varsayilan 2 saniye periyotla calisiyor.
+- [x] Child 2 varsayilan 3 saniye periyotla calisiyor.
+- [x] Child 3 varsayilan 4 saniye periyotla calisiyor.
+- [x] Child'lar 60 saniyelik calisma dongusune sahip.
+- [x] Child'lar ilk 30 saniye ve son 30 saniyede farkli okuma/yazma davranisi sergiliyor.
+- [x] `SIGINT` ve `SIGTERM` graceful shutdown icin isleniyor.
+- [x] Parent kapanirken child'lara `SIGTERM` gonderiyor ve bekliyor.
+- [x] Program sonunda shared memory ve semaphore kaynaklari temizleniyor.
+- [x] `SIGUSR1` reset broadcast icin kullaniliyor.
+- [x] `SIGUSR2` istatistik yazdirmak icin kullaniliyor.
+- [x] `SIGHUP` config reload istegi icin kullaniliyor.
+- [x] `SIGCHLD` ile beklenmeden biten child'lar toplanabiliyor.
+- [x] Keyboard thread `r`, `s`, `q` komutlarini destekliyor.
+- [x] Config thread `syncstore.conf` uzerinden interval degerlerini reload edebiliyor.
+- [x] `child1.c`, `child2.c`, `child3.c` kendi header dosyalarini include ediyor.
+- [x] `child*_storage_task` implicit declaration uyarilari giderildi.
+- [x] README ve diger Markdown dosyalari son duruma gore guncellendi.
 
-## ❌ Yapılmayanlar (Kırmızı)
+## Mevcut Davranis Ozeti
 
-- [ ] **Paylaşımlı bellek oluşturma** - main.c'de shmget() çağrısı eksik
-- [ ] **Semaphore oluşturma** - main.c'de semget() çağrısı eksik
-- [ ] **Paylaşımlı bellek bağlantısı** - Child'ler SharedData*'ya erişemiyor
-- [ ] **Child'lerde storage kullanımı** - child1/2/3 fonksiyonları storage_write/read çağırmıyor
-- [ ] **Parametre geçişi** - Child'ler semid ve SharedData parametrelerini almıyor
-- [ ] **60 saniye çalışma süresi** - Child'ların 60 saniye boyunca çalışması sağlanmalı
-- [ ] **Farklı periyotlar** - Child1: 2sn, Child2: 3sn, Child3: 4sn aralıklarla işlem yapmalı
-- [ ] **PID tabanlı veri** - Child'lar kendi PID'lerini kullanarak veri yazmalı/okumalı
-- [ ] **Hata kontrolü** - Paylaşımlı bellek ve semaphore hata kontrolleri eksik
-- [ ] **Bellek temizleme** - Program sonunda shmctl() ve semctl() çağrıları yok
-- [ ] **Sinyal geliştirmeleri** - 5 farklı sinyal için handler'lar eklenmeli
+1. Parent process sinyal sistemini hazirlar.
+2. Shared memory ve semaphore kaynaklarini olusturur.
+3. Shared memory icindeki varsayilan interval degerlerini ayarlar.
+4. IPC kaynaklarini sinyal modulune kaydeder.
+5. 3 child process fork eder.
+6. Parent keyboard thread ve config thread baslatir.
+7. Child'lar `ortak_depo` key'i uzerinde okuma/yazma yapar.
+8. Her storage erisimi semaphore ile korunur.
+9. Parent child'larin bitmesini bekler.
+10. Cikis sirasinda IPC kaynaklari temizlenir.
 
-## 📋 Yapılması Gereken Adımlar
+## Kalan veya Gelistirilebilir Noktalar
 
-1. **main.c'de paylaşımlı bellek oluştur**
-   ```c
-   int shmid = shmget(IPC_PRIVATE, sizeof(SharedData), IPC_CREAT | 0666);
-   SharedData *data = (SharedData*)shmat(shmid, NULL, 0);
-   ```
+- [ ] Child'lar icin coklu key senaryosu eklenebilir.
+- [ ] `kilitle()` ve `kilidi_ac()` fonksiyonlari hata durumunu boolean/int olarak dondurecek sekilde gelistirilebilir.
+- [ ] Storage kapasitesi doldugunda daha ayrintili hata/log mekanizmasi eklenebilir.
+- [ ] `syncstore.conf` icin yorum satiri ve bos satir parse davranisi daha acik hale getirilebilir.
 
-2. **main.c'de semaphore oluştur**
-   ```c
-   int semid = semget(IPC_PRIVATE, 1, IPC_CREAT | 0666);
-   semctl(semid, 0, SETVAL, 1);
-   ```
+## Son Durum
 
-3. **Child fonksiyonlarını güncelle**
-   ```c
-   void child1_function(int param, SharedData *data, int semid)
-   ```
-
-4. **Child'lerde storage fonksiyonlarını çağır**
-   ```c
-   storage_write(data, semid, "anahtar1", 100, getpid());
-   ```
-
-5. **60 saniye çalışma süresi ekle**
-   ```c
-   time_t start = time(NULL);
-   while (time(NULL) - start < 60) {
-       // 2/3/4 saniye aralıklarla işlem yap
-       sleep(interval);
-   }
-   ```
-
-6. **Sinyal handler'ları ekle**
-   ```c
-   signal(SIGINT, sigint_handler);
-   signal(SIGTERM, sigterm_handler);
-   signal(SIGUSR1, sigusr1_handler);
-   signal(SIGUSR2, sigusr2_handler);
-   signal(SIGHUP, sighup_handler);
-   ```
-
-7. **Program sonunda kaynakları temizle**
-   ```c
-   shmdt(data);
-   shmctl(shmid, IPC_RMID, NULL);
-   semctl(semid, 0, IPC_RMID);
-   ```
-
-## 🎯 Proje Mantığı
-- Main process 3 child process fork'lar
-- Her child kendi parametresine göre çalışır (1, 2, 3)
-- Child'lar 60 saniye boyunca çalışır:
-  - Child1: 2 saniyede bir okuma/yazma yapar
-  - Child2: 3 saniyede bir okuma/yazma yapar  
-  - Child3: 4 saniyede bir okuma/yazma yapar
-- Child'ler kendi PID'lerini kullanarak veri yazma/okuma yapar
-- Child'ler storage'daki kilitleme fonksiyonlarını kullanarak aynı anda yazma/okuma çakışmalarını engeller
-- Paylaşımlı bellek üzerinden veri alışverişi yapılır
-- 5 farklı sinyal için handler'lar program kontrolünü sağlar
-
-## 🚨 Sinyal Geliştirme Önerileri
-**sinyal.c** için eklenmesi gereken handler'lar:
-1. **SIGINT (Ctrl+C)**: Programı güvenli şekilde sonlandırır, kaynakları temizler
-2. **SIGTERM**: Kademeli kapatma işlemi yapar, child'ları durdurur
-3. **SIGUSR1**: Child'lara durdurma/başlatma sinyali gönderir
-4. **SIGUSR2**: İstatistikleri ekrana yazdırır (okuma/yazma sayıları)
-5. **SIGHUP**: Konfigürasyon yeniden yükler (periyotları günceller)
+Proje, semaforla korunan IPC anahtar-deger deposu olarak calisir durumdadir. Son duzeltmeyle child kaynak dosyalarindaki eksik header include problemi giderilmis ve derleme sirasinda gorulen implicit declaration uyarilarinin kaynagi kapatilmistir.

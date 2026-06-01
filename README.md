@@ -1,292 +1,282 @@
-# IPC Sistem Projesi 🚀
+# IPC Semaphore Key-Value Store Projesi
 
-## Proje Açıklaması
-Bu proje, **3 child process**'in paylaşımlı bellek (IPC) üzerinde **güvenli** veri okuma/yazma işlemlerini gerçekleştirmesini sağlar. Semaphore ile senkronizasyon yapılır, graceful shutdown uygulanır ve asenkron klavye komutları desteklenir.
+Bu proje, parent process tarafindan olusturulan 3 child process'in System V IPC uzerinden ortak bir anahtar-deger deposuna erismesini gosterir. Ortak veri alani shared memory icindedir; okuma ve yazma islemleri tek bir System V semaphore ile korunur. Boylece ayni anda sadece bir process kritik bolgeye girer ve `SharedData` yapisinin tutarliligi korunur.
 
-## ✨ Temel Özellikler
-- ✅ Fork ile 3 child process oluşturma
-- ✅ Paylaşımlı bellek (Shared Memory) ile IPC
-- ✅ Semaphore ile race condition korunması
-- ✅ 60 saniye çalışma süresi (child'lar farklı aralıklarla)
-- ✅ **Graceful shutdown** (Ctrl+C - tüm child'ları bekle, kaynakları temizle)
-- ✅ **Reset sinyali** (SIGUSR1 - tüm sinyalleri sıfırla)
-- ✅ **Asenkron keyboard** (r/s/q komutları - program çalışırken)
-- ✅ 5 farklı sinyal handler
+## Temel Ozellikler
 
----
+- Parent process 3 child process olusturur.
+- IPC icin System V shared memory kullanilir.
+- Senkronizasyon icin System V semaphore kullanilir.
+- Depo modeli `KeyValue db[100]` + `count` alanindan olusur.
+- Child process'ler 60 saniye calisir.
+- Child'lar farkli periyotlarla okuma/yazma yapar.
+- `SIGINT` ve `SIGTERM` ile graceful shutdown uygulanir.
+- `SIGUSR1` ile reset sinyali child'lara broadcast edilir.
+- `SIGUSR2` ile aktif child PID listesi yazdirilir.
+- `SIGHUP` ile `syncstore.conf` dosyasindan interval reload istegi islenir.
+- `SIGCHLD` handler'i beklenmeden biten child'lari toplar.
+- Program calisirken `r`, `s`, `q` klavye komutlari desteklenir.
 
-## Dosya Yapısı
+## Dosya Yapisi
 
-| Dosya | Açıklama |
-|-------|----------|
-| **main.c** | Fork, SHM oluşturma, Semaphore setup, cleanup |
-| **child1.c** | Child1: 2 saniye aralık, yazma/okuma |
-| **child2.c** | Child2: 3 saniye aralık, okuma/yazma |
-| **child3.c** | Child3: 4 saniye aralık, yazma/okuma |
-| **sinyal.c** | Sinyal handler'ları, async keyboard thread |
-| **sinyal.h** | Sinyal API prototipleri |
-| **storage.c** | Semaphore kilitleme, read/write fonksiyonları |
-| **storage.h** | SharedData struct, KeyValue veri yapıları |
-| **Makefile** | GCC derleme |
+| Dosya | Gorev |
+| --- | --- |
+| `main.c` | Program girisi, shared memory/semaphore kurulumu, fork, wait ve cleanup |
+| `storage.h` | `KeyValue`, `SharedData` ve storage API tanimlari |
+| `storage.c` | Semaphore lock/unlock, key arama, okuma ve yazma islemleri |
+| `child1.c/.h` | Child 1 gorevi, 2 saniye varsayilan periyot |
+| `child2.c/.h` | Child 2 gorevi, 3 saniye varsayilan periyot |
+| `child3.c/.h` | Child 3 gorevi, 4 saniye varsayilan periyot |
+| `sinyal.c/.h` | Sinyal handler'lari, keyboard thread, config reload thread, loglama |
+| `syncstore.conf` | Calisma sirasinda reload edilebilen interval ayarlari |
+| `Makefile` | GCC ile derleme hedefleri |
+| `COMPILE_GUIDE.md` | Derleme ve calistirma notlari |
+| `CODE_REVIEW.md` | Teknik kod inceleme ozeti |
+| `tamamlama.md` | Son tamamlanma durumu |
 
----
+## Mimari
 
-## Sistem Mimarisi
-
-```
-┌─────────────────────────────────────────────┐
-│         MAIN PROCESS (Parent)               │
-│  - Fork yapı (3 child process)              │
-│  - Shared Memory oluşturma (shmget)         │
-│  - Semaphore oluşturma (semget)             │
-│  - Async Keyboard Thread                    │
-│  - Waitpid() ile child'ları bekleme         │
-│  - Kaynakları temizleme (cleanup)           │
-└─────────────────────────────────────────────┘
-          ↓         ↓         ↓
-    ┌──────┴─────┬──────────┬──────┴──────┐
-    ↓            ↓          ↓             ↓
-┌────────┐  ┌────────┐  ┌────────┐  ┌─────────┐
-│CHILD1  │  │CHILD2  │  │CHILD3  │  │KEYBOARD │
-│(2s)    │  │(3s)    │  │(4s)    │  │THREAD   │
-│        │  │        │  │        │  │         │
-│Yazma   │  │Okuma   │  │Yazma   │  │r=Reset  │
-│Okuma   │  │Yazma   │  │Okuma   │  │s=Stat   │
-└────────┘  └────────┘  └────────┘  │q=Quit   │
-    │           │          │         │         │
-    └───────────┴──────────┴─────────┼─────────┘
-                │          
-         ┌──────▼──────┐
-         │ STORAGE     │
-         │ (IPC Layer) │
-         │             │
-         │ Sem: Lock   │
-         │ SHM: Data   │
-         └─────────────┘
+```text
+Parent process
+  |
+  |-- signal_function()
+  |-- shmget() / shmat()
+  |-- semget() / semctl(SETVAL=1)
+  |-- fork()
+  |     |-- child1 -> shmat(shmid), storage_write/read()
+  |     |-- child2 -> shmat(shmid), storage_read/write()
+  |     |-- child3 -> shmat(shmid), storage_write/read()
+  |
+  |-- keyboard thread: r/s/q
+  |-- config thread: SIGHUP sonrasi syncstore.conf reload
+  |-- wait()
+  |-- shmdt(), shmctl(IPC_RMID), semctl(IPC_RMID)
 ```
 
-### **IPC Bileşenleri:**
+Parent, IPC kaynaklarini olusturur ve child'lara `shmid` ile `semid` bilgisini verir. Child'lar kendi adres alanlarinda `shmat()` cagirarak ayni shared memory segmentine baglanir. `semid` ise tum child'lar tarafindan ayni semaphore setine erismek icin kullanilir.
 
-1. **Shared Memory** (shmid)
-   - Tür: `IPC_PRIVATE`
-   - Boyut: `sizeof(SharedData)` = 100 × KeyValue + int
-   - İçerik: Anahtar-değer çiftleri (maks 100)
+## Shared Memory Veri Modeli
 
-2. **Semaphore** (semid)
-   - Tür: `IPC_PRIVATE`, 1 semaphore
-   - İlk değer: 1 (açık/free)
-   - Mekanizm: Mutex (kilitleme/açma)
-
-### **Sinyal Handler'ları:**
-
-| Sinyal | Kod | Handler | Fonksiyon |
-|--------|-----|---------|-----------|
-| SIGINT | 2 | `kapatma_handler()` | ✅ Graceful shutdown |
-| SIGTERM | 15 | `kapatma_handler()` | ✅ Kademeli kapanma |
-| SIGUSR1 | 10 | `reset_handler()` | ✅ Tüm child'lara reset |
-| SIGUSR2 | 12 | `istatistik_handler()` | ✅ PID listesi göster |
-| SIGHUP | 1 | `konfig_handler()` | ✅ Config reload (hazır) |
-
----
-
-## Çalışma Akışı ve Zamanlamalar
-
-### **Child Process'lerin 60 Saniyesi:**
-
-| Child | Aralık | 0-30s | 30-60s | PID Kullanımı |
-|-------|--------|-------|--------|---------------|
-| **Child1** | 2s | Yazma | Okuma | Değer = PID + count |
-| **Child2** | 3s | Okuma | Yazma | Değer = PID + count |
-| **Child3** | 4s | Yazma | Okuma | Değer = PID + count |
-
-### **Main Process Akışı:**
-
-```
-1. signal_function()          → Tüm handler'ları kur
-2. sinyal_klavye_baslat()     → Async keyboard thread başlat
-3. shmget()                   → Shared memory oluştur
-4. shmat()                    → Process'e bağla
-5. semget()                   → Semaphore oluştur
-6. semctl(SETVAL, 1)          → Semaphore = 1 (açık)
-7. sinyal_kaynak_kaydet()     → Kaynakları signal module'e kaydet
-8. for (i=1; i<=3; i++) fork() → 3 child oluştur
-9. waitpid() x 3              → Tüm child'lar bitişini bekle
-10. shmdt()                   → Shared memory'den ayrıl
-11. shmctl(IPC_RMID)          → Shared memory sil
-12. semctl(IPC_RMID)          → Semaphore sil
-```
-
----
-
-## Güvenlik Mekanizması
-
-### **Race Condition Korunması:**
+`storage.h` icindeki ana veri yapisi:
 
 ```c
-// Storage'da okuma/yazma:
-kilitle(semid);              // ⬜ Lock al
-// ... kritik bölge ...
-// storage_write() veya storage_read()
-kilidi_ac(semid);            // 🟩 Lock bırak
+typedef struct {
+    char key[32];
+    int value;
+    time_t last_update;
+} KeyValue;
+
+typedef struct {
+    KeyValue db[100];
+    int count;
+    int interval1;
+    int interval2;
+    int interval3;
+    int config_version;
+} SharedData;
 ```
 
-- **Semaphore kilitleme**: Aynı anda sadece 1 process'in veriye erişmesini sağlar
-- **Atomic operasyonlar**: `kilitle()` ve `kilidi_ac()` atomic (bölünemez)
-- **Veri tutarlılığı**: Tüm accesses senkronize
+Alanlar:
 
----
+- `db[100]`: En fazla 100 anahtar-deger kaydi tutar.
+- `count`: Depoda aktif kac kayit oldugunu belirtir.
+- `interval1`, `interval2`, `interval3`: Child periyotlari. Varsayilan degerler `2`, `3`, `4`.
+- `config_version`: Config reload basarili olunca artirilir.
+- `last_update`: Bir key'in en son ne zaman yazildigini saklar.
 
-## Asenkron Keyboard Komutları
+Su an child'lar ayni anahtari kullanir:
 
-Program çalışırken bu tuşları basabilirsiniz:
-
-```
-┌─────────────────────────────────────────┐
-│ r / R  → Reset sinyali gönder           │
-│          (tüm child'lara SIGUSR1)       │
-│                                         │
-│ s / S  → İstatistik göster              │
-│          (aktif child sayısı, PID list) │
-│                                         │
-│ q / Q  → Programı kapat (gracefully)    │
-│          (tüm child'ları bekle)         │
-│                                         │
-│ ENTER  → Yardım mesajı                  │
-└─────────────────────────────────────────┘
+```c
+const char key[] = "ortak_depo";
 ```
 
-**Örnek:**
+Bu tercih, ayni kayit uzerinde eszamanli erisim baskisi olusturarak semaphore korumasini gostermek icindir.
+
+## Okuma, Yazma ve Veri Kaliciligi
+
+Child process'ler okuma ve yazma yaparken birbirlerini bekler. Bunun nedeni `storage_read()` ve `storage_write()` fonksiyonlarinin ortak shared memory alanina erismeden once semaphore kilidi almasidir.
+
+```c
+kilitle(semid);
+/* kritik bolge: shared memory okuma veya yazma */
+kilidi_ac(semid);
 ```
-Program çalışıyor...
-r
-[KEYBOARD] Reset sinyali gonderildi.
-[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
+
+Bir child kritik bolgedeyken baska bir child ayni anda depoya giremez. Diger child process `semop()` cagrisi uzerinde bekler. Bu nedenle okuma ve yazma islemleri sirali hale gelir ve `db` ile `count` alanlari ayni anda birden fazla process tarafindan degistirilmez.
+
+Yazilan degerler program calistigi sure boyunca shared memory icinde kalir. Parent process program sonunda `shmctl(shmid, IPC_RMID, NULL)` cagirarak shared memory segmentini sildigi icin veriler program kapandiktan sonra kalici olarak saklanmaz. Bu proje dosyaya veya veritabanina kalici kayit yapmaz; veriler yalnizca calisma suresince IPC belleginde tutulur.
+
+Bir child okuma yaptiginda tek bir sayi okumasinin nedeni mevcut senaryoda tum child'larin ayni key'i kullanmasidir:
+
+```c
+const char key[] = "ortak_depo";
 ```
 
----
+Depo teknik olarak 100 farkli key-value kaydi tutabilir. Ancak mevcut child kodlari sadece `"ortak_depo"` anahtarini kullandigi icin pratikte tek kayit olusur. Yeni yazma islemi ayni key'i bulur ve eski degeri gunceller. Bu yuzden okuma islemi, o anda `"ortak_depo"` anahtarinda bulunan son yazilmis `int` degerini okur.
 
-## 🛠️ Derleme ve Çalıştırma
+## Semaphore ile Kritik Bolge Koruması
 
-### **1️⃣ Linux / WSL / MSYS2 (Önerilen)**
+`storage.c` icinde iki temel yardimci vardir:
+
+```c
+void kilitle(int semid) {
+    struct sembuf operasyon = {0, -1, 0};
+    semop(semid, &operasyon, 1);
+}
+
+void kilidi_ac(int semid) {
+    struct sembuf operasyon = {0, 1, 0};
+    semop(semid, &operasyon, 1);
+}
+```
+
+Mantik:
+
+- Semaphore baslangic degeri `1` oldugu icin kilit bostur.
+- `kilitle()` semaphore degerini `-1` ile dusurur.
+- Deger `0` iken baska process `kilitle()` cagirirsa kernel onu bekletir.
+- `kilidi_ac()` semaphore degerini `+1` yapar ve bekleyen process varsa devam eder.
+
+`storage_write()` ve `storage_read()` icinde key arama, `count` guncelleme, `db[index]` yazma ve okuma islemleri bu lock altinda yapilir.
+
+## Child Process Davranislari
+
+| Child | Varsayilan periyot | Ilk 30 saniye | Son 30 saniye | Deger |
+| --- | ---: | --- | --- | --- |
+| Child 1 | 2 saniye | Yazma | Okuma | `PID + operation_count` |
+| Child 2 | 3 saniye | Okuma | Yazma | `PID + operation_count` |
+| Child 3 | 4 saniye | Yazma | Okuma | `PID + operation_count` |
+
+Her child 60 saniyelik dongu calistirir:
+
+```c
+while (time(NULL) - start_time < 60) {
+    int elapsed = (int)(time(NULL) - start_time);
+    interval = data->intervalN;
+
+    if (elapsed < 30) {
+        storage_write(...);
+    } else {
+        storage_read(...);
+    }
+
+    sleep(interval);
+}
+```
+
+Child'lar interval degerlerini her dongude shared memory'den tekrar okur. Bu sayede `SIGHUP` ile config reload yapildiktan sonra yeni periyotlar calisma sirasinda etkili olur.
+
+## Sinyal Yonetimi
+
+| Sinyal | Handler | Davranis |
+| --- | --- | --- |
+| `SIGINT` | `kapatma_handler()` | Child'lara `SIGTERM` gonderir, bekler, IPC kaynaklarini temizler |
+| `SIGTERM` | `kapatma_handler()` | `SIGINT` ile ayni graceful shutdown akisini izler |
+| `SIGUSR1` | `reset_handler()` | Parent tum child'lara reset sinyali gonderir |
+| `SIGUSR2` | `istatistik_handler()` | Kayitli child sayisini ve PID listesini yazar |
+| `SIGHUP` | `konfig_handler()` | Config reload talebi olusturur |
+| `SIGCHLD` | `sigchld_handler()` | Bitmis child process'leri `waitpid(..., WNOHANG)` ile toplar |
+
+`signal_function()` fork'lardan once cagrildigi icin child'lar da handler'lari miras alir. Handler icinde `getpid()` ana PID ile karsilastirilir. Child bir kapatma sinyali alirsa sadece kendini sonlandirir; IPC kaynaklarini silmeye calismaz.
+
+## Asenkron Klavye Komutlari
+
+Parent process fork islemlerinden sonra keyboard thread baslatir.
+
+| Tus | Etki |
+| --- | --- |
+| `r` veya `R` | Parent'a `SIGUSR1` gonderir, child'lara reset broadcast edilir |
+| `s` veya `S` | Parent'a `SIGUSR2` gonderir, istatistik yazdirilir |
+| `q` veya `Q` | Parent'a `SIGINT` gonderir, graceful shutdown baslar |
+| `Enter` | Komut yardimini yazdirir |
+
+## Config Reload
+
+`syncstore.conf` dosyasi:
+
+```conf
+interval1=2
+interval2=3
+interval3=4
+```
+
+Program calisirken baska bir terminalden:
 
 ```bash
-# Makefile ile (en kolay)
-make
-make run
-
-# Veya direkt:
-gcc -Wall -pthread -std=c99 -o program \
-    main.c sinyal.c storage.c child1.c child2.c child3.c -lpthread
-
-./program
+kill -HUP <parent_pid>
 ```
 
-### **2️⃣ Windows MSYS2 Kurulumu**
+gonderildiginde `SIGHUP` handler'i reload istegi isaretler. Config thread bu istegi gorur, dosyayi okur, shared memory'ye baglanir, semaphore ile kilit alir ve interval alanlarini gunceller. Basarili degisiklikte `config_version` artar.
 
-```powershell
-# 1. MSYS2 indir: https://www.msys2.org/
-# 2. MSYS2 Terminal'i aç (MSYS2 MinGW x64):
+## Derleme
 
-pacman -S base-devel mingw-w64-x86_64-gcc mingw-w64-x86_64-make
-
-# 3. Proje klasörüne git:
-cd "/c/Users/FERHAT KARA/OneDrive/Masaüstü/sistem proje"
-
-# 4. Derle:
-make
-./program
-```
-
-### **3️⃣ WSL2 Kurulumu**
+WSL/Linux icinde:
 
 ```bash
-# PowerShell (Admin):
-wsl --install -d Ubuntu
+make
+```
 
-# Sonra WSL Terminal'de:
-sudo apt update && sudo apt install build-essential
+veya dogrudan:
 
-cd /mnt/c/Users/FERHAT\ KARA/OneDrive/Masaüstü/sistem\ proje
-gcc -Wall -pthread -std=c99 -o program \
-    main.c sinyal.c storage.c child1.c child2.c child3.c -lpthread
+```bash
+gcc main.c child1.c child2.c child3.c storage.c sinyal.c -o program -lpthread
+```
 
+Daha fazla uyari yakalamak icin:
+
+```bash
+gcc -Wall -Wextra -std=c99 -pthread main.c child1.c child2.c child3.c storage.c sinyal.c -o program -lpthread
+```
+
+## Calistirma
+
+```bash
 ./program
 ```
 
----
+Beklenen akis:
 
-## 📊 Örnek Çalıştırma
-
-```
-$ ./program
-
+```text
 [MAIN] Sinyal yonetimi kuruldu.
+[MAIN] Paylasimli bellek olusturuldu (...)
+[MAIN] Semaphore olusturuldu (...)
+[MAIN] Child 1 fork edildi (...)
+[MAIN] Child 2 fork edildi (...)
+[MAIN] Child 3 fork edildi (...)
 [MAIN] Asenkron klavye dinlemesi baslatildi.
-[MAIN] Paylaşimlı bellek oluşturuldu (shmid=0, Size=404 bytes).
-[MAIN] Semaphore oluşturuldu (semid=0) - initial value: 1
-[MAIN] Child 1 fork edildi (PID=1234)
-[MAIN] Child 2 fork edildi (PID=1235)
-[MAIN] Child 3 fork edildi (PID=1236)
-
-Child1 (PID 1234): Storage gorevini basliyorum...
-Child1 (PID 1234): 60 saniyelik gorev basladi. Periyot: 2 saniye.
-Child1 (PID 1234): Yazdim: ortak_depo = 1234 (slot: 0)
-Child3 (PID 1236): Yazdim: ortak_depo = 1236 (slot: 0)
-
-[Program çalışıyor - r tuşu ile reset, s tuşu ile stat, q tuşu ile çık]
-
-r
-[KEYBOARD] Reset sinyali gonderildi.
-[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
-
-q
-[KEYBOARD] Kapanma sinyali gonderildi.
-[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
-[SERVER] Child kapandi: PID 1234
-[SERVER] Child kapandi: PID 1235
-[SERVER] Child kapandi: PID 1236
-[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
-[SERVER] Shared memory silindi.
-[SERVER] Semaphore silindi.
-[SERVER] Temiz cikis. Hosca kal.
-
-Program Bitti. Tum kaynaklar temizlendi.
 ```
 
----
+Program calisirken:
 
-## 🐛 Sorun Giderme
+```text
+r  -> reset
+s  -> istatistik
+q  -> temiz cikis
+```
 
-| Problem | Çözüm |
-|---------|-------|
-| `"shmget: Permission denied"` | `ipcrm -a` ile eski kaynakları temizle |
-| `"pthread.h not found"` | WSL2 veya MSYS2 kullan |
-| `"child process doesn't sync"` | Storage log'larını kontrol et, SHM ve SEM kurulu mu? |
-| Program çalışırken input almıyor | Keyboard thread başlatıldı mı? (kontrol et: log'ta görünür) |
+## Temizleme
 
----
+Normal cikista parent:
 
-## 📚 Ek Kaynaklar
+1. Child process'lerin bitmesini bekler.
+2. Shared memory'den `shmdt()` ile ayrilir.
+3. Shared memory segmentini `shmctl(..., IPC_RMID, ...)` ile siler.
+4. Semaphore'u `semctl(..., IPC_RMID)` ile siler.
 
-- [CODE_REVIEW.md](CODE_REVIEW.md) - Detaylı teknik inceleme
-- [COMPILE_GUIDE.md](COMPILE_GUIDE.md) - Platform-spesifik derleme
-- [Makefile](Makefile) - Build konfigürasyonu
+Beklenmeyen durumda IPC kaynaklari kalirsa Linux/WSL uzerinde kontrol:
 
----
+```bash
+ipcs
+```
 
-## 👥 Proje Ekibi Notları
+Gerekirse temizleme:
 
-- ✅ Child1: Yazma dominantlı (ilk 30s)
-- ✅ Child2: Okuma dominantlı (ilk 30s)
-- ✅ Child3: Yazma dominantlı (ilk 30s)
-- ✅ Farklı aralıklar: Race condition tetiklemek için optimal
-- ✅ Semaphore: FIFO sırayla access sağlar
-- ✅ Graceful shutdown: Zombie process'ler yok
+```bash
+ipcrm -a
+```
 
----
+## Son Durum
 
-## 📝 Lisans
+Kodun son halinde `child1.c`, `child2.c`, `child3.c` kendi header dosyalarini include eder. Boylece `child*_storage_task` fonksiyonlari icin implicit declaration uyarilari giderilmistir.
 
-Bu proje eğitim amaçlı bir IPC ve process yönetimi örneğidir.
-
-**Tüm gereksinimler ✅ başarıyla uygulanmıştır!**
+Proje su an parent-child IPC, semaphore tabanli kritik bolge korumasi, asenkron klavye kontrolu, graceful shutdown ve config reload ozelliklerini birlikte gosteren calisir bir System V IPC ornegidir.

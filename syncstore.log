@@ -18,3 +18,109 @@
 [SERVER] Shared memory silindi.
 [SERVER] Semaphore silindi.
 [SERVER] Temiz cikis. Hosca kal.
+[10:50:56] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[10:50:56] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[10:50:56] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[10:50:56] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[10:50:56] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[10:50:56] Yeni child kaydedildi.
+[10:50:56] Yeni child kaydedildi.
+[10:50:56] Yeni child kaydedildi.
+[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
+[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
+[SERVER] Reset islemi tamamlandi.
+[CHILD 420[CHILD [CHILD [SERVER] Reset islemi tamamlandi.
+] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+421] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+422[CHILD 420[CHILD ] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[CHILD ] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+421422] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[SERVER] === ISTATISTIK ===
+[SERVER] Aktif kayitli child sayisi: 3
+[SERVER] Child PID listesi: 420 421 422
+[SERVER] ====================
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[SERVER] Child kapandi: PID 420
+[SERVER] Child kapandi: PID 421
+[SERVER] Child kapandi: PID 422
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Temiz cikis. Hosca kal.
+[10:52:57] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[10:52:57] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[10:52:57] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[10:52:57] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[10:52:57] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[10:52:57] Yeni child kaydedildi.
+[10:52:57] Yeni child kaydedildi.
+[10:52:57] Yeni child kaydedildi.
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[CHILD 433[CHILD [CHILD 431] Kapatma sinyali alindi, cikiyorum.
+432] Kapatma sinyali alindi, cikiyorum.
+] Kapatma sinyali alindi, cikiyorum.
+[SERVER] Child kapandi: PID 431
+[SERVER] Child kapandi: PID 432
+[SERVER] Child kapandi: PID 433
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[10:53:40] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[10:53:40] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[10:53:40] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[10:53:40] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[10:53:40] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[10:53:40] Yeni child kaydedildi.
+[10:53:40] Yeni child kaydedildi.
+[10:53:40] Yeni child kaydedildi.
+[SERVER] === ISTATISTIK ===
+[SERVER] Aktif kayitli child sayisi: 3
+[SERVER] Child PID listesi: 442 443 444
+[SERVER] ====================
+[10:56:44] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[10:56:44] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[10:56:44] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[10:56:44] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[10:56:44] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[10:56:44] Yeni child kaydedildi.
+[10:56:44] Yeni child kaydedildi.
+[10:56:44] Yeni child kaydedildi.
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[SERVER] Child kapandi: PID 464
+[SERVER] Child kapandi: PID 465
+[SERVER] Child kapandi: PID 466
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Temiz cikis. Hosca kal.
+[11:54:03] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[11:54:03] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[11:54:03] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[11:54:03] Yeni child kaydedildi.
+[11:54:03] Yeni child kaydedildi.
+[11:54:03] Yeni child kaydedildi.
+[11:54:03] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[11:54:03] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[11:54:03] Konfig thread baslatildi.
+[11:54:03] Konfig reload thread baslatildi.
+[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
+[CHILD [SERVER] Reset islemi tamamlandi.
+[CHILD [CHILD 864865866] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[CHILD [CHILD [CHILD 864865866] Kapatma sinyali alindi, cikiyorum.
+] Kapatma sinyali alindi, cikiyorum.
+] Kapatma sinyali alindi, cikiyorum.
+[SERVER] SIGCHLD: child toplandi PID [SERVER] Child kapandi: PID 864864
+
+[SERVER] SIGCHLD: child toplandi PID [SERVER] Child kapandi: PID 865865
+
+[SERVER] SIGCHLD: child toplandi PID [SERVER] Child kapandi: PID 866866
+
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.

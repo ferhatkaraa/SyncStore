@@ -38,6 +38,7 @@ void sinyal_kaynak_kaydet(int shmid, int semid);
  * Bu fonksiyon asenkron klavye girisi tarafından çağrılabilir.
  * Child'lara bir reset sinyali gonder, böylece state'leri sifirlanabilir. */
 void sinyal_reset_tum_sinyaller(void);
+void sinyal_config_baslat(void);
 
 /* Asenkron klavye girişi thread'ini başlat.
  * Komutlar: 'r' = reset, 's' = istatistik, 'q' = kapanma.
