@@ -14,7 +14,7 @@
  * Desteklenen sinyaller:
  *   SIGINT  (Ctrl+C) -> Tum child'lari kapat, kaynaklari temizle, cik
  *   SIGTERM          -> SIGINT ile ayni (kademeli guvenli kapanma)
- *   SIGUSR1          -> Tum child'lara mesaj yayinla (broadcast)
+ *   SIGUSR1          -> Tum sinyalleri sifirla (reset)
  *   SIGUSR2          -> Anlik istatistikleri ekrana/log'a yaz
  *   SIGHUP           -> Konfigurasyonu yeniden yukle (log'lanir)
  *   SIGCHLD          -> Beklenmeden olen child'lari toplar (zombie engelle)
@@ -33,6 +33,16 @@ void sinyal_child_ekle(pid_t pid);
  * ve semaphore'u olusturduktan sonra cagirir. Cagrilmazsa kaynak
  * temizligi guvenli sekilde atlanir (id'ler -1 kalir). */
 void sinyal_kaynak_kaydet(int shmid, int semid);
+
+/* Tum sinyalleri reset et - child'lara broadcast yap (SIGUSR1 ile)
+ * Bu fonksiyon asenkron klavye girisi tarafından çağrılabilir.
+ * Child'lara bir reset sinyali gonder, böylece state'leri sifirlanabilir. */
+void sinyal_reset_tum_sinyaller(void);
+
+/* Asenkron klavye girişi thread'ini başlat.
+ * Komutlar: 'r' = reset, 's' = istatistik, 'q' = kapanma.
+ * Thread detached olarak çalışır (kendi kaynağını temizler). */
+void sinyal_klavye_baslat(void);
 
 /* Normal kod akisindan (handler disindan) zaman damgali log yazmak
  * icin yardimci fonksiyon. Istege bagli kullanilir. */

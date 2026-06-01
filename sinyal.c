@@ -31,6 +31,7 @@
 #include <fcntl.h>
 #include <time.h>
 #include <errno.h>
+#include <pthread.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/ipc.h>
@@ -179,23 +180,24 @@ static void istatistik_handler(int sig) {
 }
 
 /* ============================================================
- *   EK OZELLIK: Child'lara yayin (SIGUSR1 broadcast)
+ *   EK OZELLIK: Tum sinyalleri reset et (SIGUSR1)
  * ============================================================ */
-static void yayin_handler(int sig) {
+static void reset_handler(int sig) {
     (void)sig;
 
     if (getpid() != g_ana_pid) {
-        /* child tarafi: yayini aldi */
+        /* child tarafi: reset sinyali alindi */
         guvenli_yaz("[CHILD ");
         guvenli_yaz_sayi((long)getpid());
-        guvenli_yaz("] SIGUSR1 yayini alindi.\n");
+        guvenli_yaz("] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.\n");
         return;
     }
 
-    guvenli_yaz("[SERVER] SIGUSR1 -> tum child'lara yayinlaniyor...\n");
+    guvenli_yaz("[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...\n");
     for (int i = 0; i < (int)g_child_sayisi; i++) {
         if (g_child_pidler[i] > 0) kill(g_child_pidler[i], SIGUSR1);
     }
+    guvenli_yaz("[SERVER] Reset islemi tamamlandi.\n");
 }
 
 /* ============================================================
@@ -240,13 +242,13 @@ void signal_function(void) {
     handler_kur(SIGTERM, kapatma_handler,    0);
 
     /* EK ozellikler */
-    handler_kur(SIGUSR1, yayin_handler,      1);
+    handler_kur(SIGUSR1, reset_handler,      1);  /* Tum sinyalleri reset et */
     handler_kur(SIGUSR2, istatistik_handler, 1);
     handler_kur(SIGHUP,  konfig_handler,     1);
 
     sinyal_log("Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.");
-    sinyal_log("Ipuclari: kill -USR2 <pid> = istatistik, "
-               "kill -USR1 <pid> = yayin, kill -HUP <pid> = config reload.");
+    sinyal_log("Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, "
+               "kill -HUP <pid> = config reload. (R tusu ile asenkron reset)");
 }
 
 void sinyal_child_ekle(pid_t pid) {
@@ -265,4 +267,81 @@ void sinyal_kaynak_kaydet(int shmid, int semid) {
     g_shmid = shmid;
     g_semid = semid;
     sinyal_log("IPC kaynaklari kaydedildi (kapanista temizlenecek).");
+}
+
+/* ============================================================
+ *   ASENKRON KEYBOARD GIRISI (Thread)
+ * ============================================================ */
+
+/* Keyboard thread'inin ana fonksiyonu */
+static void* keyboard_thread_func(void *arg) {
+    (void)arg;
+    int c;
+
+    sinyal_log("[KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.");
+
+    while (1) {
+        c = getchar();
+
+        if (c == 'r' || c == 'R') {
+            /* Reset sinyali gonder (kendi PID'e) */
+            if (g_ana_pid != 0) {
+                kill(g_ana_pid, SIGUSR1);
+            }
+            printf("[KEYBOARD] Reset sinyali gonderildi.\n");
+        }
+        else if (c == 's' || c == 'S') {
+            /* İstatistik sinyali gonder */
+            if (g_ana_pid != 0) {
+                kill(g_ana_pid, SIGUSR2);
+            }
+            printf("[KEYBOARD] Istatistik sinyali gonderildi.\n");
+        }
+        else if (c == 'q' || c == 'Q') {
+            /* Kapatma sinyali gonder */
+            if (g_ana_pid != 0) {
+                kill(g_ana_pid, SIGINT);
+            }
+            printf("[KEYBOARD] Kapanma sinyali gonderildi.\n");
+            break;
+        }
+        else if (c == '\n') {
+            printf("[KEYBOARD] Komutlar: 'r'=reset, 's'=istatistik, 'q'=cik\n");
+        }
+    }
+
+    return NULL;
+}
+
+/* ============================================================
+ *   RESET FONKSIYONU (Normal koddan çağrılabilir)
+ * ============================================================ */
+void sinyal_reset_tum_sinyaller(void) {
+    if (getpid() != g_ana_pid) {
+        sinyal_log("Reset: sadece parent process cagirebilir.");
+        return;
+    }
+
+    guvenli_yaz("[RESET] Tum child'lara reset sinyali gonderiliyor...\n");
+    for (int i = 0; i < (int)g_child_sayisi; i++) {
+        if (g_child_pidler[i] > 0) {
+            kill(g_child_pidler[i], SIGUSR1);
+        }
+    }
+    guvenli_yaz("[RESET] Islemi tamamlandi.\n");
+}
+
+/* ============================================================
+ *   KEYBOARD THREAD'INI BASLATAN FONKSIYON
+ * ============================================================ */
+void sinyal_klavye_baslat(void) {
+    pthread_t tid;
+    int ret = pthread_create(&tid, NULL, keyboard_thread_func, NULL);
+    
+    if (ret != 0) {
+        sinyal_log("Keyboard thread olusturulamadi!");
+    } else {
+        pthread_detach(tid);  /* Thread'in kendi kaynağını temizlemesini sağla */
+        sinyal_log("Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)");
+    }
 }

@@ -1,0 +1,20 @@
+[08:16:35] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[08:16:35] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[08:16:35] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[08:16:35] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[08:16:35] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[08:16:35] Yeni child kaydedildi.
+[08:16:35] Yeni child kaydedildi.
+[08:16:35] Yeni child kaydedildi.
+[CHILD 905
+[SERVER] Sinyal alindi (no=2[CHILD 906[CHILD 907] Kapatma sinyali alindi, cikiyorum.
+). ONCE tum child'lar kapatiliyor...
+[SERVER] Child kapandi: PID ] Kapatma sinyali alindi, cikiyorum.
+] Kapatma sinyali alindi, cikiyorum.
+905
+[SERVER] Child kapandi: PID 906
+[SERVER] Child kapandi: PID 907
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
