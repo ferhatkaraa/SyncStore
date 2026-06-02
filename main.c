@@ -101,13 +101,13 @@ int main() {
         }
     }
 
-    /* ===== ADIM 6: Tum child'lar bitmesini bekle ===== */
     /* ===== ADIM 5B: Yalnizca parent'ta asenkron klavye dinlemesi baslat ===== */
     sinyal_klavye_baslat();
     sinyal_config_baslat();
     printf("[MAIN] Asenkron klavye dinlemesi baslatildi.\n");
 
-    printf("[MAIN] Tum child'lar bitmesini bekliyorum...\n");
+    /* ===== ADIM 6: Client child'lari bekle, fakat server'i kapatma ===== */
+    printf("[MAIN] Tum child client'larin bitmesini bekliyorum...\n");
     for (i = 0; i < 3; i++) {
         int status;
         pid_t terminated_pid = wait(&status);
@@ -122,23 +122,17 @@ int main() {
         printf("[MAIN] Child bitti (PID=%d)\n", terminated_pid);
     }
 
-    /* ===== ADIM 7: Paylaşimlı bellek ve semaphore'u temizle ===== */
-    printf("[MAIN] Kaynaklar temizleniyor...\n");
-    
-    if (shmdt(shared_data) < 0) {
-        perror("shmdt");
+    /* ===== ADIM 7: KALICI SERVER MODU =====
+     * Odev isterine gore server process child client'lar bitince kapanmamalidir.
+     * Bu nedenle burada normal cleanup akisini calistirmiyoruz; parent process
+     * pause() ile sinyal/klavye thread'lerinden gelecek kapanma istegini bekler.
+     *
+     * Kaynak temizligi sadece sinyal.c icindeki graceful shutdown handler'inda
+     * yapilir: keyboard thread 'q'/'Q' basinca SIGINT gonderir, Ctrl+C veya
+     * SIGTERM de ayni guvenli kapanma yolunu kullanir. */
+    printf("[MAIN] Tum child client'lar tamamlandi.\n");
+    printf("[MAIN] Server calismaya devam ediyor. Cikis icin 'q' veya Ctrl+C kullanin.\n");
+    while (1) {
+        pause();
     }
-    
-    if (shmctl(shmid, IPC_RMID, NULL) < 0) {
-        perror("shmctl");
-    }
-    
-    if (semctl(semid, 0, IPC_RMID) < 0) {
-        perror("semctl RMID");
-    }
-
-    printf("[MAIN] Program Bitti. Tum kaynaklar temizlendi.\n");
-    return 0;
 }
-
-

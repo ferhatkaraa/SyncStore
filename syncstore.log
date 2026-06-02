@@ -124,3 +124,2374 @@
 [SERVER] Shared memory silindi.
 [SERVER] Semaphore silindi.
 [SERVER] Temiz cikis. Hosca kal.
+[04:22:08] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[04:22:08] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[04:22:18] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[04:22:18] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[04:22:18] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[04:22:18] Yeni child kaydedildi.
+[04:22:18] Yeni child kaydedildi.
+[04:22:18] Yeni child kaydedildi.
+[04:22:18] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[04:22:18] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[04:22:18] Konfig thread baslatildi.
+[04:22:18] Konfig reload thread baslatildi.
+[SERVER] === ISTATISTIK ===
+[SERVER] Aktif kayitli child sayisi: 3
+[SERVER] Child PID listesi: 74382 74383 74384
+[SERVER] ====================
+[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
+[SERVER] Reset islemi tamamlandi.
+[CHILD 74383] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[CHILD 74384] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[CHILD 74382] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[CHILD [CHILD 7438474382] Kapatma sinyali alindi, cikiyorum.
+] Kapatma sinyali alindi, cikiyorum.
+[CHILD 74383] Kapatma sinyali alindi, cikiyorum.
+[SERVER] SIGCHLD: child toplandi PID 74384
+[SERVER] Child kapandi: PID 74382[SERVER] SIGCHLD: child toplandi PID 74383
+
+[SERVER] Child kapandi: PID 74383
+[SERVER] Child kapandi: PID 74384
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[04:23:09] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[04:23:09] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[04:23:09] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[04:23:09] Yeni child kaydedildi.
+[04:23:09] Yeni child kaydedildi.
+[04:23:09] Yeni child kaydedildi.
+[04:23:09] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[04:23:09] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[04:23:09] Konfig thread baslatildi.
+[04:23:09] Konfig reload thread baslatildi.
+[SERVER] === ISTATISTIK ===
+[SERVER] Aktif kayitli child sayisi: 3
+[SERVER] Child PID listesi: 74528 74529 74530
+[SERVER] ====================
+[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
+[SERVER] Reset islemi tamamlandi.
+[CHILD 74528[CHILD 74530] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[CHILD 74529] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[SERVER] SIGCHLD: child toplandi PID 74529
+[SERVER] SIGCHLD: child toplandi PID 74528
+[SERVER] SIGCHLD: child toplandi PID 74530
+[04:25:02] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[04:25:02] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[04:25:02] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[04:25:02] Yeni child kaydedildi.
+[04:25:02] Yeni child kaydedildi.
+[04:25:02] Yeni child kaydedildi.
+[04:25:02] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[04:25:02] Konfig thread baslatildi.
+[04:25:02] Konfig reload thread baslatildi.
+[04:25:02] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[SERVER] === ISTATISTIK ===
+[SERVER] Aktif kayitli child sayisi: 3
+[SERVER] Child PID listesi: 74704 74705 74706
+[SERVER] ====================
+[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
+[SERVER] Reset islemi tamamlandi.
+[CHILD 74704] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[CHILD 74706] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[CHILD 74705] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[CHILD [CHILD 74704] Kapatma sinyali alindi, cikiyorum.
+[CHILD 74706] Kapatma sinyali alindi, cikiyorum.
+74705] Kapatma sinyali alindi, cikiyorum.
+[SERVER] SIGCHLD: child toplandi PID [SERVER] Child kapandi: PID 74704
+74706
+[SERVER] Child kapandi: PID 74705
+[SERVER] Child kapandi: PID 74706
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[10:52:15] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[10:52:15] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[10:52:15] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[10:52:15] Yeni child kaydedildi.
+Child 1: SET Yazdim: child1_key = 80097 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81097 (slot: 1)
+[10:52:15] Yeni child kaydedildi.
+Child 2: SET Yazdim: child2_key = 80098 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82098 (slot: 1)
+[10:52:15] Yeni child kaydedildi.
+[10:52:15] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[10:52:15] Konfig thread baslatildi.
+[10:52:15] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[10:52:15] Konfig reload thread baslatildi.
+Child 3: SET Yazdim: child3_key = 80099 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83099 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80098 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81098 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80099 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82099 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80099 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81099 (slot: 1)
+Child 3: SET Yazdim: child3_key = 80100 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83100 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80100 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82100 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80100 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81100 (slot: 1)
+Child 3: SET Yazdim: child3_key = 80101 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83101 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80101 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81101 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80101 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82101 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80102 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81102 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80102 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82102 (slot: 1)
+Child 3: SET Yazdim: child3_key = 80102 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83102 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80103 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81103 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80104 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81104 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80103 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82103 (slot: 1)
+Child 3: SET Yazdim: child3_key = 80103 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83103 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80105 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81105 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80104 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82104 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80106 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81106 (slot: 1)
+Child 3: GET Okudum: child3_key = 80103 (slot: 3, son guncelleme: 1780386751)
+Child 3: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 3: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 3: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 3: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 2: GET Okudum: child2_key = 80104 (slot: 2, son guncelleme: 1780386753)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 2: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 2: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 2: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 80103 (slot: 3, son guncelleme: 1780386751)
+Child 3: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 3: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 3: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 3: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 2: GET Okudum: child2_key = 80104 (slot: 2, son guncelleme: 1780386753)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 2: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 2: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 2: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 2: GET Okudum: child2_key = 80104 (slot: 2, son guncelleme: 1780386753)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 2: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 2: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 2: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 2: LIST bitti.
+Child 3: GET Okudum: child3_key = 80103 (slot: 3, son guncelleme: 1780386751)
+Child 3: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 3: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 3: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 3: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 2: GET Okudum: child2_key = 80104 (slot: 2, son guncelleme: 1780386753)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 2: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 2: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 2: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 80103 (slot: 3, son guncelleme: 1780386751)
+Child 3: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 3: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 3: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 3: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 2: GET Okudum: child2_key = 80104 (slot: 2, son guncelleme: 1780386753)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 2: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 2: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 2: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 80103 (slot: 3, son guncelleme: 1780386751)
+Child 3: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 3: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 3: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 3: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 2: GET Okudum: child2_key = 80104 (slot: 2, son guncelleme: 1780386753)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 2: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 2: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 2: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 80106 (slot: 0, son guncelleme: 1780386753)
+Child 1: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 81106 (slot: 1, son guncelleme: 1780386753)
+Child 2: GET Okudum: child2_key = 80104 (slot: 2, son guncelleme: 1780386753)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 2: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 2: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 2: LIST slot=3 key=child3_key value=80103 son_guncelleme=1780386751
+Child 2: LIST bitti.
+Child 3: DELETE Sildim: child3_key = 80103 (slot: 3)
+Child 3: LIST basladi. Kayit sayisi: 3
+Child 3: LIST slot=0 key=child1_key value=80106 son_guncelleme=1780386753
+Child 3: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 3: LIST slot=2 key=child2_key value=80104 son_guncelleme=1780386753
+Child 3: LIST bitti.
+Child 1: DELETE Sildim: child1_key = 80106 (slot: 0)
+Child 1: LIST basladi. Kayit sayisi: 2
+Child 1: LIST slot=0 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST slot=1 key=ortak_depo value=81106 son_guncelleme=1780386753
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: ortak_depo = 81106 (slot: 1)
+Child 2: LIST basladi. Kayit sayisi: 1
+Child 2: LIST slot=0 key=child2_key value=80104 son_guncelleme=1780386753
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 1
+Child 3: LIST slot=0 key=child2_key value=80104 son_guncelleme=1780386753
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=80104 son_guncelleme=1780386753
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: child2_key = 80104 (slot: 0)
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+[SERVER] SIGCHLD: child toplandi PID 80099
+[SERVER] SIGCHLD: child toplandi PID 80098
+[SERVER] SIGCHLD: child toplandi PID 80097
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[SERVER] Child kapandi: PID 80097
+[SERVER] Child kapandi: PID 80098
+[SERVER] Child kapandi: PID 80099
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[10:54:38] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[10:54:38] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[10:54:38] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[10:54:38] Yeni child kaydedildi.
+Child 1: SET Yazdim: child1_key = 80403 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81403 (slot: 1)
+[10:54:38] Yeni child kaydedildi.
+Child 2: SET Yazdim: child2_key = 80404 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82404 (slot: 1)
+[10:54:38] Yeni child kaydedildi.
+[10:54:38] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[10:54:38] Konfig thread baslatildi.
+[10:54:38] Konfig reload thread baslatildi.
+[10:54:38] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+Child 3: SET Yazdim: child3_key = 80405 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83405 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80404 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81404 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80405 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82405 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80405 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81405 (slot: 1)
+Child 3: SET Yazdim: child3_key = 80406 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83406 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80406 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81406 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80406 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82406 (slot: 1)
+[SERVER] === ISTATISTIK ===
+[SERVER] Aktif kayitli child sayisi: 3
+[SERVER] Child PID listesi: 80403 80404 80405
+[SERVER] ====================
+Child 3: SET Yazdim: child3_key = 80407 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83407 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80407 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81407 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80407 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82407 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80408 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81408 (slot: 1)
+Child 3: SET Yazdim: child3_key = 80408 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83408 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80408 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82408 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80409 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81409 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80410 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81410 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80409 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82409 (slot: 1)
+[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
+[SERVER] Reset islemi tamamlandi.
+[CHILD [CHILD 80405] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+80403] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[CHILD 80404Child 3: SET Yazdim: child3_key = 80409 (slot: 3)
+] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+Child 3: SET Yazdim: ortak_depo = 83409 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80410 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82410 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80411 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81411 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80412 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81412 (slot: 1)
+Child 2: SET Yazdim: child2_key = 80411 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 82411 (slot: 1)
+Child 3: SET Yazdim: child3_key = 80410 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 83410 (slot: 1)
+Child 1: SET Yazdim: child1_key = 80413 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 81413 (slot: 1)
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[CHILD 80403] Kapatma sinyali alindi, cikiyorum.
+[CHILD 80404[CHILD 80405] Kapatma sinyali alindi, cikiyorum.
+] Kapatma sinyali alindi, cikiyorum.
+[SERVER] Child kapandi: PID 80403
+[SERVER] Child kapandi: PID 80404
+[SERVER] Child kapandi: PID [SERVER] SIGCHLD: child toplandi PID 80405
+80405
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[12:26:08] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[12:26:08] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[12:26:08] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[12:26:08] Yeni child kaydedildi.
+Child 1: SET Yazdim: child1_key = 84459 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85459 (slot: 1)
+[12:26:08] Yeni child kaydedildi.
+Child 2: SET Yazdim: child2_key = 84460 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86460 (slot: 1)
+[12:26:08] Yeni child kaydedildi.
+[12:26:08] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[12:26:08] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[12:26:08] Konfig thread baslatildi.
+[12:26:08] Konfig reload thread baslatildi.
+Child 3: SET Yazdim: child3_key = 84461 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87461 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84460 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85460 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84461 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86461 (slot: 1)
+Child 3: SET Yazdim: child3_key = 84462 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87462 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84461 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85461 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84462 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86462 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84462 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85462 (slot: 1)
+Child 3: SET Yazdim: child3_key = 84463 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87463 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84463 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85463 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84463 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86463 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84464 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85464 (slot: 1)
+Child 3: SET Yazdim: child3_key = 84464 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87464 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84464 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86464 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84465 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85465 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84466 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85466 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84465 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86465 (slot: 1)
+Child 3: SET Yazdim: child3_key = 84465 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87465 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84467 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85467 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84466 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86466 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84468 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85468 (slot: 1)
+Child 3: GET Okudum: child3_key = 84465 (slot: 3, son guncelleme: 1780392384)
+Child 3: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 3: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 3: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 3: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 2: GET Okudum: child2_key = 84466 (slot: 2, son guncelleme: 1780392386)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 2: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 2: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 2: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 84465 (slot: 3, son guncelleme: 1780392384)
+Child 3: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 3: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 3: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 3: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 2: GET Okudum: child2_key = 84466 (slot: 2, son guncelleme: 1780392386)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 2: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 2: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 2: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 2: GET Okudum: child2_key = 84466 (slot: 2, son guncelleme: 1780392386)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 2: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 2: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 2: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 2: LIST bitti.
+Child 3: GET Okudum: child3_key = 84465 (slot: 3, son guncelleme: 1780392384)
+Child 3: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 3: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 3: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 3: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 2: GET Okudum: child2_key = 84466 (slot: 2, son guncelleme: 1780392386)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 2: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 2: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 2: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 84465 (slot: 3, son guncelleme: 1780392384)
+Child 3: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 3: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 3: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 3: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 2: GET Okudum: child2_key = 84466 (slot: 2, son guncelleme: 1780392386)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 2: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 2: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 2: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 84465 (slot: 3, son guncelleme: 1780392384)
+Child 3: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 3: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 3: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 3: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 2: GET Okudum: child2_key = 84466 (slot: 2, son guncelleme: 1780392386)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 2: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 2: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 2: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 84468 (slot: 0, son guncelleme: 1780392386)
+Child 1: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85468 (slot: 1, son guncelleme: 1780392386)
+Child 2: GET Okudum: child2_key = 84466 (slot: 2, son guncelleme: 1780392386)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 2: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 2: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 2: LIST slot=3 key=child3_key value=84465 son_guncelleme=1780392384
+Child 2: LIST bitti.
+Child 3: DELETE Sildim: child3_key = 84465 (slot: 3)
+Child 3: LIST basladi. Kayit sayisi: 3
+Child 3: LIST slot=0 key=child1_key value=84468 son_guncelleme=1780392386
+Child 3: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 3: LIST slot=2 key=child2_key value=84466 son_guncelleme=1780392386
+Child 3: LIST bitti.
+Child 1: DELETE Sildim: child1_key = 84468 (slot: 0)
+Child 1: LIST basladi. Kayit sayisi: 2
+Child 1: LIST slot=0 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST slot=1 key=ortak_depo value=85468 son_guncelleme=1780392386
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: ortak_depo = 85468 (slot: 1)
+Child 2: LIST basladi. Kayit sayisi: 1
+Child 2: LIST slot=0 key=child2_key value=84466 son_guncelleme=1780392386
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 1
+Child 3: LIST slot=0 key=child2_key value=84466 son_guncelleme=1780392386
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=84466 son_guncelleme=1780392386
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: child2_key = 84466 (slot: 0)
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+[SERVER] SIGCHLD: child toplandi PID 84461
+[SERVER] SIGCHLD: child toplandi PID 84460
+[SERVER] SIGCHLD: child toplandi PID 84459
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[SERVER] Child kapandi: PID 84459
+[SERVER] Child kapandi: PID 84460
+[SERVER] Child kapandi: PID 84461
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[12:42:37] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[12:42:37] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[12:42:37] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[12:42:37] Yeni child kaydedildi.
+Child 1: SET Yazdim: child1_key = 84990 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85990 (slot: 1)
+[12:42:37] Yeni child kaydedildi.
+Child 2: SET Yazdim: child2_key = 84991 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86991 (slot: 1)
+[12:42:37] Yeni child kaydedildi.
+[12:42:37] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[12:42:37] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[12:42:37] Konfig thread baslatildi.
+[12:42:37] Konfig reload thread baslatildi.
+Child 3: SET Yazdim: child3_key = 84992 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87992 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84991 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85991 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84992 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86992 (slot: 1)
+Child 3: SET Yazdim: child3_key = 84993 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87993 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84992 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85992 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84993 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86993 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84993 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85993 (slot: 1)
+Child 3: SET Yazdim: child3_key = 84994 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87994 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84994 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85994 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84994 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86994 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84995 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85995 (slot: 1)
+Child 3: SET Yazdim: child3_key = 84995 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87995 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84995 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86995 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84996 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85996 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84997 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85997 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84996 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86996 (slot: 1)
+Child 3: SET Yazdim: child3_key = 84996 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 87996 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84998 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85998 (slot: 1)
+Child 2: SET Yazdim: child2_key = 84997 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 86997 (slot: 1)
+Child 1: SET Yazdim: child1_key = 84999 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 85999 (slot: 1)
+Child 3: GET Okudum: child3_key = 84996 (slot: 3, son guncelleme: 1780393373)
+Child 3: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 3: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 3: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 3: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 2: GET Okudum: child2_key = 84997 (slot: 2, son guncelleme: 1780393375)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 2: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 2: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 2: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 84996 (slot: 3, son guncelleme: 1780393373)
+Child 3: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 3: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 3: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 3: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 2: GET Okudum: child2_key = 84997 (slot: 2, son guncelleme: 1780393375)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 2: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 2: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 2: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 2: GET Okudum: child2_key = 84997 (slot: 2, son guncelleme: 1780393375)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 2: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 2: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 2: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 2: LIST bitti.
+Child 3: GET Okudum: child3_key = 84996 (slot: 3, son guncelleme: 1780393373)
+Child 3: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 3: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 3: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 3: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 2: GET Okudum: child2_key = 84997 (slot: 2, son guncelleme: 1780393375)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 2: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 2: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 2: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 84996 (slot: 3, son guncelleme: 1780393373)
+Child 3: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 3: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 3: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 3: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 2: GET Okudum: child2_key = 84997 (slot: 2, son guncelleme: 1780393375)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 2: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 2: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 2: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 84996 (slot: 3, son guncelleme: 1780393373)
+Child 3: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 3: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 3: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 3: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 2: GET Okudum: child2_key = 84997 (slot: 2, son guncelleme: 1780393375)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 2: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 2: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 2: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 84999 (slot: 0, son guncelleme: 1780393375)
+Child 1: GET Okudum: ortak_depo = 85999 (slot: 1, son guncelleme: 1780393375)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 1: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST slot=2 key=child2_key value=84997 son_guncelleme=1780393375
+Child 1: LIST slot=3 key=child3_key value=84996 son_guncelleme=1780393373
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: child2_key = 84997 (slot: 2)
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 2: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 2: LIST slot=2 key=child3_key value=84996 son_guncelleme=1780393373
+Child 2: LIST bitti.
+Child 3: DELETE Sildim: child3_key = 84996 (slot: 2)
+Child 3: LIST basladi. Kayit sayisi: 2
+Child 3: LIST slot=0 key=child1_key value=84999 son_guncelleme=1780393375
+Child 3: LIST slot=1 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 3: LIST bitti.
+Child 1: DELETE Sildim: child1_key = 84999 (slot: 0)
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=ortak_depo value=85999 son_guncelleme=1780393375
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: ortak_depo = 85999 (slot: 0)
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+[SERVER] SIGCHLD: child toplandi PID 84992
+[SERVER] SIGCHLD: child toplandi PID 84991
+[SERVER] SIGCHLD: child toplandi PID 84990
+[12:44:02] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[12:44:02] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[12:44:02] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[12:44:02] Yeni child kaydedildi.
+Child 1: SET Yazdim: child1_key = 85108 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86108 (slot: 1)
+[12:44:02] Yeni child kaydedildi.
+Child 2: SET Yazdim: child2_key = 85109 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87109 (slot: 1)
+[12:44:02] Yeni child kaydedildi.
+[12:44:02] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[12:44:02] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[12:44:02] Konfig thread baslatildi.
+[12:44:02] Konfig reload thread baslatildi.
+Child 3: SET Yazdim: child3_key = 85110 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88110 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85109 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86109 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85110 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87110 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85111 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88111 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85110 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86110 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85111 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87111 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85111 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86111 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85112 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88112 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85112 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86112 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85112 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87112 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85113 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86113 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85113 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87113 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85113 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88113 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85114 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86114 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85115 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86115 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85114 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87114 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85114 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88114 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85116 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86116 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85115 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87115 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85117 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86117 (slot: 1)
+Child 3: GET Okudum: child3_key = 85114 (slot: 3, son guncelleme: 1780393458)
+Child 3: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 3: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 3: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 3: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 2: GET Okudum: child2_key = 85115 (slot: 2, son guncelleme: 1780393460)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 2: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 2: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 2: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85114 (slot: 3, son guncelleme: 1780393458)
+Child 3: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 3: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 3: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 3: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 2: GET Okudum: child2_key = 85115 (slot: 2, son guncelleme: 1780393460)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 2: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 2: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 2: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 2: GET Okudum: child2_key = 85115 (slot: 2, son guncelleme: 1780393460)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 2: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 2: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 2: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 2: LIST bitti.
+Child 3: GET Okudum: child3_key = 85114 (slot: 3, son guncelleme: 1780393458)
+Child 3: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 3: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 3: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 3: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 2: GET Okudum: child2_key = 85115 (slot: 2, son guncelleme: 1780393460)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 2: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 2: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 2: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85114 (slot: 3, son guncelleme: 1780393458)
+Child 3: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 3: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 3: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 3: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 2: GET Okudum: child2_key = 85115 (slot: 2, son guncelleme: 1780393460)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 2: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 2: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 2: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85114 (slot: 3, son guncelleme: 1780393458)
+Child 3: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 3: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 3: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 3: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 2: GET Okudum: child2_key = 85115 (slot: 2, son guncelleme: 1780393460)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 2: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 2: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 2: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 85117 (slot: 0, son guncelleme: 1780393460)
+Child 1: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86117 (slot: 1, son guncelleme: 1780393460)
+Child 2: GET Okudum: child2_key = 85115 (slot: 2, son guncelleme: 1780393460)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 2: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 2: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 2: LIST slot=3 key=child3_key value=85114 son_guncelleme=1780393458
+Child 2: LIST bitti.
+Child 3: DELETE Sildim: child3_key = 85114 (slot: 3)
+Child 3: LIST basladi. Kayit sayisi: 3
+Child 3: LIST slot=0 key=child1_key value=85117 son_guncelleme=1780393460
+Child 3: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 3: LIST slot=2 key=child2_key value=85115 son_guncelleme=1780393460
+Child 3: LIST bitti.
+Child 1: DELETE Sildim: child1_key = 85117 (slot: 0)
+Child 1: LIST basladi. Kayit sayisi: 2
+Child 1: LIST slot=0 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST slot=1 key=ortak_depo value=86117 son_guncelleme=1780393460
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: ortak_depo = 86117 (slot: 1)
+Child 2: LIST basladi. Kayit sayisi: 1
+Child 2: LIST slot=0 key=child2_key value=85115 son_guncelleme=1780393460
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 1
+Child 3: LIST slot=0 key=child2_key value=85115 son_guncelleme=1780393460
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=85115 son_guncelleme=1780393460
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: child2_key = 85115 (slot: 0)
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+[SERVER] SIGCHLD: child toplandi PID 85110
+[SERVER] SIGCHLD: child toplandi PID 85109
+[SERVER] SIGCHLD: child toplandi PID 85108
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[SERVER] Child kapandi: PID 85108
+[SERVER] Child kapandi: PID 85109
+[SERVER] Child kapandi: PID 85110
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[12:53:58] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[12:53:58] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[12:53:58] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[12:53:58] Yeni child kaydedildi.
+Child 1: SET Yazdim: child1_key = 85302 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86302 (slot: 1)
+[12:53:58] Yeni child kaydedildi.
+Child 2: SET Yazdim: child2_key = 85303 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87303 (slot: 1)
+[12:53:58] Yeni child kaydedildi.
+[12:53:58] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[12:53:58] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[12:53:58] Konfig reload thread baslatildi.
+[12:53:58] Konfig thread baslatildi.
+Child 3: SET Yazdim: child3_key = 85304 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88304 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85303 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86303 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85304 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87304 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85305 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88305 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85304 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86304 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85305 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87305 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85305 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86305 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85306 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88306 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85306 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86306 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85306 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87306 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85307 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86307 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85307 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88307 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85307 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87307 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85308 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86308 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85309 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86309 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85308 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87308 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85308 (slot: 3)
+Child 3: SET Yazdim: ortak_depo = 88308 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85310 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86310 (slot: 1)
+Child 2: SET Yazdim: child2_key = 85309 (slot: 2)
+Child 2: SET Yazdim: ortak_depo = 87309 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85311 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86311 (slot: 1)
+Child 3: GET Okudum: child3_key = 85308 (slot: 3, son guncelleme: 1780394054)
+Child 3: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 3: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 3: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 3: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 2: GET Okudum: child2_key = 85309 (slot: 2, son guncelleme: 1780394056)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 2: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 2: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 2: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85308 (slot: 3, son guncelleme: 1780394054)
+Child 3: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 3: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 3: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 3: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 2: GET Okudum: child2_key = 85309 (slot: 2, son guncelleme: 1780394056)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 2: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 2: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 2: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 2: GET Okudum: child2_key = 85309 (slot: 2, son guncelleme: 1780394056)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 2: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 2: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 2: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 2: LIST bitti.
+Child 3: GET Okudum: child3_key = 85308 (slot: 3, son guncelleme: 1780394054)
+Child 3: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 3: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 3: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 3: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 2: GET Okudum: child2_key = 85309 (slot: 2, son guncelleme: 1780394056)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 2: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 2: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 2: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85308 (slot: 3, son guncelleme: 1780394054)
+Child 3: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 3: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 3: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 3: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 2: GET Okudum: child2_key = 85309 (slot: 2, son guncelleme: 1780394056)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 2: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 2: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 2: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85308 (slot: 3, son guncelleme: 1780394054)
+Child 3: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 3: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 3: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 3: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 3: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 2: GET Okudum: child2_key = 85309 (slot: 2, son guncelleme: 1780394056)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 2: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 2: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 2: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 2: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 85311 (slot: 0, son guncelleme: 1780394056)
+Child 1: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 1: LIST bitti.
+Child 2: GET Okudum: ortak_depo = 86311 (slot: 1, son guncelleme: 1780394056)
+Child 2: GET Okudum: child2_key = 85309 (slot: 2, son guncelleme: 1780394056)
+Child 2: LIST basladi. Kayit sayisi: 4
+Child 2: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 2: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 2: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 2: LIST slot=3 key=child3_key value=85308 son_guncelleme=1780394054
+Child 2: LIST bitti.
+Child 3: DELETE Sildim: child3_key = 85308 (slot: 3)
+Child 3: LIST basladi. Kayit sayisi: 3
+Child 3: LIST slot=0 key=child1_key value=85311 son_guncelleme=1780394056
+Child 3: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 3: LIST slot=2 key=child2_key value=85309 son_guncelleme=1780394056
+Child 3: LIST bitti.
+Child 1: DELETE Sildim: child1_key = 85311 (slot: 0)
+Child 1: LIST basladi. Kayit sayisi: 2
+Child 1: LIST slot=0 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST slot=1 key=ortak_depo value=86311 son_guncelleme=1780394056
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: ortak_depo = 86311 (slot: 1)
+Child 2: LIST basladi. Kayit sayisi: 1
+Child 2: LIST slot=0 key=child2_key value=85309 son_guncelleme=1780394056
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 1
+Child 3: LIST slot=0 key=child2_key value=85309 son_guncelleme=1780394056
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=85309 son_guncelleme=1780394056
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: child2_key = 85309 (slot: 0)
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+[SERVER] SIGCHLD: child toplandi PID 85304
+[SERVER] SIGCHLD: child toplandi PID 85303
+[SERVER] SIGCHLD: child toplandi PID 85302
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[SERVER] Child kapandi: PID 85302
+[SERVER] Child kapandi: PID 85303
+[SERVER] Child kapandi: PID 85304
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[12:56:05] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[12:56:05] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[12:56:05] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[12:56:05] Yeni child kaydedildi.
+Child 1: SET Yazdim: child1_key = 85390 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86390 (slot: 1)
+[12:56:05] Yeni child kaydedildi.
+Child 2: GET Okudum: ortak_depo = 86390 (slot: 1, son guncelleme: 1780394165)
+[12:56:05] Yeni child kaydedildi.
+Child 2: GET basarisiz, key bulunamadi: child2_key
+[12:56:05] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[12:56:05] Konfig thread baslatildi.
+[12:56:05] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+Child 2: LIST basladi. Kayit sayisi: 2
+[12:56:05] Konfig reload thread baslatildi.
+Child 2: LIST slot=0 key=child1_key value=85390 son_guncelleme=1780394165
+Child 2: LIST slot=1 key=ortak_depo value=86390 son_guncelleme=1780394165
+Child 2: LIST bitti.
+Child 3: SET Yazdim: child3_key = 85392 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88392 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85391 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86391 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86391 (slot: 1, son guncelleme: 1780394167)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85391 son_guncelleme=1780394167
+Child 2: LIST slot=1 key=ortak_depo value=86391 son_guncelleme=1780394167
+Child 2: LIST slot=2 key=child3_key value=85392 son_guncelleme=1780394165
+Child 2: LIST bitti.
+Child 3: SET Yazdim: child3_key = 85393 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88393 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85392 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86392 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86392 (slot: 1, son guncelleme: 1780394169)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85392 son_guncelleme=1780394169
+Child 2: LIST slot=1 key=ortak_depo value=86392 son_guncelleme=1780394169
+Child 2: LIST slot=2 key=child3_key value=85393 son_guncelleme=1780394169
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85393 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86393 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85394 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88394 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85394 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86394 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86394 (slot: 1, son guncelleme: 1780394173)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85394 son_guncelleme=1780394173
+Child 2: LIST slot=1 key=ortak_depo value=86394 son_guncelleme=1780394173
+Child 2: LIST slot=2 key=child3_key value=85394 son_guncelleme=1780394173
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85395 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86395 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85395 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88395 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 88395 (slot: 1, son guncelleme: 1780394177)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85395 son_guncelleme=1780394175
+Child 2: LIST slot=1 key=ortak_depo value=88395 son_guncelleme=1780394177
+Child 2: LIST slot=2 key=child3_key value=85395 son_guncelleme=1780394177
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85396 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86396 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85397 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86397 (slot: 1)
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[CHILD 85390] Kapatma sinyali alindi, cikiyorum.
+[CHILD 85391] Kapatma sinyali alindi, cikiyorum.
+[CHILD 85392] Kapatma sinyali alindi, cikiyorum.
+[SERVER] SIGCHLD: child toplandi PID 85392[SERVER] Child kapandi: PID 85390
+[SERVER] Child kapandi: PID 85391
+
+[SERVER] Child kapandi: PID 85392
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[12:56:26] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[12:56:26] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[12:56:26] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[12:56:26] Yeni child kaydedildi.
+Child 1: SET Yazdim: child1_key = 85397 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86397 (slot: 1)
+[12:56:26] Yeni child kaydedildi.
+Child 2: GET Okudum: ortak_depo = 86397 (slot: 1, son guncelleme: 1780394186)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 2
+Child 2: LIST slot=0 key=child1_key value=85397 son_guncelleme=1780394186
+Child 2: LIST slot=1 key=ortak_depo value=86397 son_guncelleme=1780394186
+Child 2: LIST bitti.
+[12:56:26] Yeni child kaydedildi.
+[12:56:26] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[12:56:26] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[12:56:26] Konfig thread baslatildi.
+[12:56:26] Konfig reload thread baslatildi.
+Child 3: SET Yazdim: child3_key = 85399 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88399 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85398 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86398 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86398 (slot: 1, son guncelleme: 1780394188)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85398 son_guncelleme=1780394188
+Child 2: LIST slot=1 key=ortak_depo value=86398 son_guncelleme=1780394188
+Child 2: LIST slot=2 key=child3_key value=85399 son_guncelleme=1780394186
+Child 2: LIST bitti.
+Child 3: SET Yazdim: child3_key = 85400 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88400 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85399 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86399 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86399 (slot: 1, son guncelleme: 1780394190)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85399 son_guncelleme=1780394190
+Child 2: LIST slot=1 key=ortak_depo value=86399 son_guncelleme=1780394190
+Child 2: LIST slot=2 key=child3_key value=85400 son_guncelleme=1780394190
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85400 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86400 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85401 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88401 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85401 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86401 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86401 (slot: 1, son guncelleme: 1780394194)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85401 son_guncelleme=1780394194
+Child 2: LIST slot=1 key=ortak_depo value=86401 son_guncelleme=1780394194
+Child 2: LIST slot=2 key=child3_key value=85401 son_guncelleme=1780394194
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85402 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86402 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85402 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88402 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 88402 (slot: 1, son guncelleme: 1780394198)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85402 son_guncelleme=1780394196
+Child 2: LIST slot=1 key=ortak_depo value=88402 son_guncelleme=1780394198
+Child 2: LIST slot=2 key=child3_key value=85402 son_guncelleme=1780394198
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85403 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86403 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85404 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86404 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86404 (slot: 1, son guncelleme: 1780394200)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85404 son_guncelleme=1780394200
+Child 2: LIST slot=1 key=ortak_depo value=86404 son_guncelleme=1780394200
+Child 2: LIST slot=2 key=child3_key value=85402 son_guncelleme=1780394198
+Child 2: LIST bitti.
+Child 3: SET Yazdim: child3_key = 85403 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88403 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85405 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86405 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86405 (slot: 1, son guncelleme: 1780394202)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85405 son_guncelleme=1780394202
+Child 2: LIST slot=1 key=ortak_depo value=86405 son_guncelleme=1780394202
+Child 2: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85406 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86406 (slot: 1)
+Child 3: GET Okudum: child3_key = 85403 (slot: 2, son guncelleme: 1780394202)
+Child 3: GET Okudum: ortak_depo = 86406 (slot: 1, son guncelleme: 1780394204)
+Child 3: LIST basladi. Kayit sayisi: 3
+Child 3: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 3: LIST slot=1 key=ortak_depo value=86406 son_guncelleme=1780394204
+Child 3: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 86406 (slot: 1, son guncelleme: 1780394204)
+Child 1: LIST basladi. Kayit sayisi: 3
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=86406 son_guncelleme=1780394204
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85405 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87405 (slot: 1)
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 87405 (slot: 1, son guncelleme: 1780394207)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=87405 son_guncelleme=1780394207
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST slot=3 key=child2_key value=85405 son_guncelleme=1780394207
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85403 (slot: 2, son guncelleme: 1780394202)
+Child 3: GET Okudum: ortak_depo = 87405 (slot: 1, son guncelleme: 1780394207)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 3: LIST slot=1 key=ortak_depo value=87405 son_guncelleme=1780394207
+Child 3: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 3: LIST slot=3 key=child2_key value=85405 son_guncelleme=1780394207
+Child 3: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85406 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87406 (slot: 1)
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 87406 (slot: 1, son guncelleme: 1780394210)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=87406 son_guncelleme=1780394210
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST slot=3 key=child2_key value=85406 son_guncelleme=1780394210
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 87406 (slot: 1, son guncelleme: 1780394210)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=87406 son_guncelleme=1780394210
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST slot=3 key=child2_key value=85406 son_guncelleme=1780394210
+Child 1: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85407 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87407 (slot: 1)
+Child 3: GET Okudum: child3_key = 85403 (slot: 2, son guncelleme: 1780394202)
+Child 3: GET Okudum: ortak_depo = 87407 (slot: 1, son guncelleme: 1780394213)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 3: LIST slot=1 key=ortak_depo value=87407 son_guncelleme=1780394213
+Child 3: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 3: LIST slot=3 key=child2_key value=85407 son_guncelleme=1780394213
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 87407 (slot: 1, son guncelleme: 1780394213)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=87407 son_guncelleme=1780394213
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST slot=3 key=child2_key value=85407 son_guncelleme=1780394213
+Child 1: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85408 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87408 (slot: 1)
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 87408 (slot: 1, son guncelleme: 1780394216)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=87408 son_guncelleme=1780394216
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST slot=3 key=child2_key value=85408 son_guncelleme=1780394216
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85403 (slot: 2, son guncelleme: 1780394202)
+Child 3: GET Okudum: ortak_depo = 87408 (slot: 1, son guncelleme: 1780394216)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 3: LIST slot=1 key=ortak_depo value=87408 son_guncelleme=1780394216
+Child 3: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 3: LIST slot=3 key=child2_key value=85408 son_guncelleme=1780394216
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 87408 (slot: 1, son guncelleme: 1780394216)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=87408 son_guncelleme=1780394216
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST slot=3 key=child2_key value=85408 son_guncelleme=1780394216
+Child 1: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85409 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87409 (slot: 1)
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 87409 (slot: 1, son guncelleme: 1780394219)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=87409 son_guncelleme=1780394219
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST slot=3 key=child2_key value=85409 son_guncelleme=1780394219
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85403 (slot: 2, son guncelleme: 1780394202)
+Child 3: GET Okudum: ortak_depo = 87409 (slot: 1, son guncelleme: 1780394219)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 3: LIST slot=1 key=ortak_depo value=87409 son_guncelleme=1780394219
+Child 3: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 3: LIST slot=3 key=child2_key value=85409 son_guncelleme=1780394219
+Child 3: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85410 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87410 (slot: 1)
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 87410 (slot: 1, son guncelleme: 1780394222)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=87410 son_guncelleme=1780394222
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST slot=3 key=child2_key value=85410 son_guncelleme=1780394222
+Child 1: LIST bitti.
+Child 1: GET Okudum: child1_key = 85406 (slot: 0, son guncelleme: 1780394204)
+Child 1: GET Okudum: ortak_depo = 87410 (slot: 1, son guncelleme: 1780394222)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 1: LIST slot=1 key=ortak_depo value=87410 son_guncelleme=1780394222
+Child 1: LIST slot=2 key=child3_key value=85403 son_guncelleme=1780394202
+Child 1: LIST slot=3 key=child2_key value=85410 son_guncelleme=1780394222
+Child 1: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85411 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87411 (slot: 1)
+Child 3: DELETE Sildim: child3_key = 85403 (slot: 2)
+Child 3: LIST basladi. Kayit sayisi: 3
+Child 3: LIST slot=0 key=child1_key value=85406 son_guncelleme=1780394204
+Child 3: LIST slot=1 key=ortak_depo value=87411 son_guncelleme=1780394225
+Child 3: LIST slot=2 key=child2_key value=85411 son_guncelleme=1780394225
+Child 3: LIST bitti.
+Child 1: DELETE Sildim: child1_key = 85406 (slot: 0)
+Child 1: LIST basladi. Kayit sayisi: 2
+Child 1: LIST slot=0 key=child2_key value=85411 son_guncelleme=1780394225
+Child 1: LIST slot=1 key=ortak_depo value=87411 son_guncelleme=1780394225
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: ortak_depo = 87411 (slot: 1)
+Child 2: LIST basladi. Kayit sayisi: 1
+Child 2: LIST slot=0 key=child2_key value=85411 son_guncelleme=1780394225
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=85411 son_guncelleme=1780394225
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 1
+Child 3: LIST slot=0 key=child2_key value=85411 son_guncelleme=1780394225
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 1
+Child 1: LIST slot=0 key=child2_key value=85411 son_guncelleme=1780394225
+Child 1: LIST bitti.
+Child 2: DELETE Sildim: child2_key = 85411 (slot: 0)
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 3: DELETE basarisiz, key bulunamadi: child3_key
+Child 3: LIST basladi. Kayit sayisi: 0
+Child 3: LIST depo bos.
+Child 3: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: child1_key
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+Child 2: DELETE basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 0
+Child 2: LIST depo bos.
+Child 2: LIST bitti.
+Child 1: DELETE basarisiz, key bulunamadi: ortak_depo
+Child 1: LIST basladi. Kayit sayisi: 0
+Child 1: LIST depo bos.
+Child 1: LIST bitti.
+[SERVER] SIGCHLD: child toplandi PID 85399
+[SERVER] SIGCHLD: child toplandi PID 85398
+[SERVER] SIGCHLD: child toplandi PID 85397
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[SERVER] Child kapandi: PID 85397
+[SERVER] Child kapandi: PID 85398
+[SERVER] Child kapandi: PID 85399
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[12:58:14] Sinyal modulu hazir. SIGINT/SIGTERM ile guvenli kapanma aktif.
+[12:58:14] Ipuclari: kill -USR1 <pid> = reset, kill -USR2 <pid> = istatistik, kill -HUP <pid> = config reload. (R tusu ile asenkron reset)
+[12:58:14] IPC kaynaklari kaydedildi (kapanista temizlenecek).
+[12:58:14] Yeni child kaydedildi.
+Child 1: SET Yazdim: child1_key = 85468 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86468 (slot: 1)
+[12:58:14] Yeni child kaydedildi.
+Child 2: GET Okudum: ortak_depo = 86468 (slot: 1, son guncelleme: 1780394294)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 2
+Child 2: LIST slot=0 key=child1_key value=85468 son_guncelleme=1780394294
+Child 2: LIST slot=1 key=ortak_depo value=86468 son_guncelleme=1780394294
+Child 2: LIST bitti.
+[12:58:14] Yeni child kaydedildi.
+[12:58:14] Keyboard thread baslatildi. Komutlar: r(reset), s(istatistik), q(cik)
+[12:58:14] [KEYBOARD THREAD] Baslatildi. 'r' ile reset, 's' ile istatistik, 'q' ile cik.
+[12:58:14] Konfig thread baslatildi.
+[12:58:14] Konfig reload thread baslatildi.
+Child 3: SET Yazdim: child3_key = 85470 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88470 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85469 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86469 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86469 (slot: 1, son guncelleme: 1780394296)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85469 son_guncelleme=1780394296
+Child 2: LIST slot=1 key=ortak_depo value=86469 son_guncelleme=1780394296
+Child 2: LIST slot=2 key=child3_key value=85470 son_guncelleme=1780394294
+Child 2: LIST bitti.
+[SERVER] === ISTATISTIK ===
+[SERVER] Aktif kayitli child sayisi: 3
+[SERVER] Child PID listesi: 85468 85469 85470
+[SERVER] ====================
+Child 3: SET Yazdim: child3_key = 85471 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88471 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85470 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86470 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86470 (slot: 1, son guncelleme: 1780394298)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85470 son_guncelleme=1780394298
+Child 2: LIST slot=1 key=ortak_depo value=86470 son_guncelleme=1780394298
+Child 2: LIST slot=2 key=child3_key value=85471 son_guncelleme=1780394298
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85471 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86471 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85472 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88472 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85472 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86472 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86472 (slot: 1, son guncelleme: 1780394302)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85472 son_guncelleme=1780394302
+Child 2: LIST slot=1 key=ortak_depo value=86472 son_guncelleme=1780394302
+Child 2: LIST slot=2 key=child3_key value=85472 son_guncelleme=1780394302
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85473 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86473 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85473 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88473 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 88473 (slot: 1, son guncelleme: 1780394306)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85473 son_guncelleme=1780394304
+Child 2: LIST slot=1 key=ortak_depo value=88473 son_guncelleme=1780394306
+Child 2: LIST slot=2 key=child3_key value=85473 son_guncelleme=1780394306
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85474 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86474 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85475 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86475 (slot: 1)
+Child 2: GET Okudum: ortak_depo = 86475 (slot: 1, son guncelleme: 1780394308)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85475 son_guncelleme=1780394308
+Child 2: LIST slot=1 key=ortak_depo value=86475 son_guncelleme=1780394308
+Child 2: LIST slot=2 key=child3_key value=85473 son_guncelleme=1780394306
+Child 2: LIST bitti.
+Child 3: SET Yazdim: child3_key = 85474 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88474 (slot: 1)
+Child 1: SET Yazdim: child1_key = 85476 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86476 (slot: 1)
+[SERVER] SIGUSR1 (RESET) -> tum child'lara reset sinyali gonderiliyor...
+[SERVER] Reset islemi tamamlandi.
+[CHILD 85469] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[CHILD 85468] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+[CHILD 85470] SIGUSR1 (RESET) sinyali alindi - state sifirlanacak.
+Child 2: GET Okudum: ortak_depo = 86476 (slot: 1, son guncelleme: 1780394310)
+Child 2: GET basarisiz, key bulunamadi: child2_key
+Child 2: LIST basladi. Kayit sayisi: 3
+Child 2: LIST slot=0 key=child1_key value=85476 son_guncelleme=1780394310
+Child 2: LIST slot=1 key=ortak_depo value=86476 son_guncelleme=1780394310
+Child 2: LIST slot=2 key=child3_key value=85474 son_guncelleme=1780394310
+Child 2: LIST bitti.
+Child 1: SET Yazdim: child1_key = 85477 (slot: 0)
+Child 1: SET Yazdim: ortak_depo = 86477 (slot: 1)
+Child 3: SET Yazdim: child3_key = 85475 (slot: 2)
+Child 3: SET Yazdim: ortak_depo = 88475 (slot: 1)
+Child 1: GET Okudum: child1_key = 85477 (slot: 0, son guncelleme: 1780394312)
+Child 1: GET Okudum: ortak_depo = 88475 (slot: 1, son guncelleme: 1780394312)
+Child 1: LIST basladi. Kayit sayisi: 3
+Child 1: LIST slot=0 key=child1_key value=85477 son_guncelleme=1780394312
+Child 1: LIST slot=1 key=ortak_depo value=88475 son_guncelleme=1780394312
+Child 1: LIST slot=2 key=child3_key value=85475 son_guncelleme=1780394312
+Child 1: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85476 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87476 (slot: 1)
+Child 3: GET Okudum: child3_key = 85475 (slot: 2, son guncelleme: 1780394312)
+Child 3: GET Okudum: ortak_depo = 87476 (slot: 1, son guncelleme: 1780394315)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85477 son_guncelleme=1780394312
+Child 3: LIST slot=1 key=ortak_depo value=87476 son_guncelleme=1780394315
+Child 3: LIST slot=2 key=child3_key value=85475 son_guncelleme=1780394312
+Child 3: LIST slot=3 key=child2_key value=85476 son_guncelleme=1780394315
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85477 (slot: 0, son guncelleme: 1780394312)
+Child 1: GET Okudum: ortak_depo = 87476 (slot: 1, son guncelleme: 1780394315)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85477 son_guncelleme=1780394312
+Child 1: LIST slot=1 key=ortak_depo value=87476 son_guncelleme=1780394315
+Child 1: LIST slot=2 key=child3_key value=85475 son_guncelleme=1780394312
+Child 1: LIST slot=3 key=child2_key value=85476 son_guncelleme=1780394315
+Child 1: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85477 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87477 (slot: 1)
+Child 1: GET Okudum: child1_key = 85477 (slot: 0, son guncelleme: 1780394312)
+Child 1: GET Okudum: ortak_depo = 87477 (slot: 1, son guncelleme: 1780394318)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85477 son_guncelleme=1780394312
+Child 1: LIST slot=1 key=ortak_depo value=87477 son_guncelleme=1780394318
+Child 1: LIST slot=2 key=child3_key value=85475 son_guncelleme=1780394312
+Child 1: LIST slot=3 key=child2_key value=85477 son_guncelleme=1780394318
+Child 1: LIST bitti.
+Child 3: GET Okudum: child3_key = 85475 (slot: 2, son guncelleme: 1780394312)
+Child 3: GET Okudum: ortak_depo = 87477 (slot: 1, son guncelleme: 1780394318)
+Child 3: LIST basladi. Kayit sayisi: 4
+Child 3: LIST slot=0 key=child1_key value=85477 son_guncelleme=1780394312
+Child 3: LIST slot=1 key=ortak_depo value=87477 son_guncelleme=1780394318
+Child 3: LIST slot=2 key=child3_key value=85475 son_guncelleme=1780394312
+Child 3: LIST slot=3 key=child2_key value=85477 son_guncelleme=1780394318
+Child 3: LIST bitti.
+Child 1: GET Okudum: child1_key = 85477 (slot: 0, son guncelleme: 1780394312)
+Child 1: GET Okudum: ortak_depo = 87477 (slot: 1, son guncelleme: 1780394318)
+Child 1: LIST basladi. Kayit sayisi: 4
+Child 1: LIST slot=0 key=child1_key value=85477 son_guncelleme=1780394312
+Child 1: LIST slot=1 key=ortak_depo value=87477 son_guncelleme=1780394318
+Child 1: LIST slot=2 key=child3_key value=85475 son_guncelleme=1780394312
+Child 1: LIST slot=3 key=child2_key value=85477 son_guncelleme=1780394318
+Child 1: LIST bitti.
+Child 2: SET Yazdim: child2_key = 85478 (slot: 3)
+Child 2: SET Yazdim: ortak_depo = 87478 (slot: 1)
+
+[SERVER] Sinyal alindi (no=2). ONCE tum child'lar kapatiliyor...
+[CHILD [CHILD 85469] Kapatma sinyali alindi, cikiyorum.
+85468] Kapatma sinyali alindi, cikiyorum.
+[CHILD 85470] Kapatma sinyali alindi, cikiyorum.
+[SERVER] Child kapandi: PID 85468
+[SERVER] SIGCHLD: child toplandi PID 85470
+[SERVER] Child kapandi: PID 85469
+[SERVER] Child kapandi: PID 85470
+[SERVER] Tum child'lar kapandi. IPC kaynaklari temizleniyor...
+[SERVER] Shared memory silindi.
+[SERVER] Semaphore silindi.
+[SERVER] Temiz cikis. Hosca kal.
+[SERVER] SIGHUP alindi -> konfigurasyon yenileme talebi kaydedildi.
+[SERVER] SIGHUP alindi -> konfigurasyon yenileme talebi kaydedildi.
+[16:09:12] Konfig dosyasi basariyla yüklendi.

@@ -25,6 +25,12 @@ typedef struct {
 // Fonksiyon prototipleri (Diğer dosyalar bu fonksiyonları tanısın diye)
 void storage_write(SharedData *data, int semid, const char *key, int value, int child_id);
 int storage_read(SharedData *data, int semid, const char *key, int child_id);
+
+// Yeni odev komutlari: DELETE verilen key'i siler, LIST tum depoyu yazdirir.
+// Iki fonksiyon da storage.c icinde semaphore ile kritik bolge korumasi yapar.
+int storage_delete(SharedData *data, int semid, const char *key, int child_id);
+void storage_list(SharedData *data, int semid, int child_id);
+
 void kilitle(int semid);
 void kilidi_ac(int semid);
 

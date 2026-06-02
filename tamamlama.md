@@ -12,12 +12,19 @@
 - [x] `storage.c` icinde `kilitle()` ve `kilidi_ac()` fonksiyonlari `semop()` kullaniyor.
 - [x] `storage_write()` key ekleme/guncelleme ve timestamp yazma islemi yapiyor.
 - [x] `storage_read()` key okuma ve bulunamama durumunu isliyor.
+- [x] `storage_delete()` key silme islemini semaphore korumali olarak yapiyor.
+- [x] `storage_list()` tum key-value kayitlarini slot ve timestamp bilgisiyle listeliyor.
+- [x] SET, GET, DELETE ve LIST komutlari ekrana ve `syncstore.log` dosyasina loglaniyor.
 - [x] `SharedData` icinde `KeyValue db[100]`, `count`, interval ve config version alanlari var.
 - [x] Child 1 varsayilan 2 saniye periyotla calisiyor.
 - [x] Child 2 varsayilan 3 saniye periyotla calisiyor.
 - [x] Child 3 varsayilan 4 saniye periyotla calisiyor.
 - [x] Child'lar 60 saniyelik calisma dongusune sahip.
-- [x] Child'lar ilk 30 saniye ve son 30 saniyede farkli okuma/yazma davranisi sergiliyor.
+- [x] Child'lar ilk 20 saniye SET, 20-40 saniye GET/LIST, son 20 saniye DELETE/LIST senaryosu calistiriyor.
+- [x] Child'lar hem ortak `ortak_depo` key'i hem de kendilerine ait key'ler uzerinde eszamanli islem yapiyor.
+- [x] En az 2 istemcinin ayni anda calismasi isteri 3 child client ile karsilaniyor.
+- [x] Parent server, child client'lar bittikten sonra kapanmadan calismaya devam ediyor.
+- [x] IPC kaynaklari yalnizca `q`/`Q`, `SIGINT` veya `SIGTERM` ile temizleniyor.
 - [x] `SIGINT` ve `SIGTERM` graceful shutdown icin isleniyor.
 - [x] Parent kapanirken child'lara `SIGTERM` gonderiyor ve bekliyor.
 - [x] Program sonunda shared memory ve semaphore kaynaklari temizleniyor.
@@ -39,18 +46,20 @@
 4. IPC kaynaklarini sinyal modulune kaydeder.
 5. 3 child process fork eder.
 6. Parent keyboard thread ve config thread baslatir.
-7. Child'lar `ortak_depo` key'i uzerinde okuma/yazma yapar.
+7. Child'lar `ortak_depo` ve kendi key'leri uzerinde SET/GET/DELETE/LIST komutlarini calistirir.
 8. Her storage erisimi semaphore ile korunur.
-9. Parent child'larin bitmesini bekler.
-10. Cikis sirasinda IPC kaynaklari temizlenir.
+9. Parent child client'larin bitmesini bekler.
+10. Parent server child'lar bittikten sonra da calismaya devam eder.
+11. Cikis yalnizca `q`/`Q`, `SIGINT` veya `SIGTERM` ile yapilir.
+12. Cikis sirasinda IPC kaynaklari temizlenir.
 
 ## Kalan veya Gelistirilebilir Noktalar
 
-- [ ] Child'lar icin coklu key senaryosu eklenebilir.
-- [ ] `kilitle()` ve `kilidi_ac()` fonksiyonlari hata durumunu boolean/int olarak dondurecek sekilde gelistirilebilir.
-- [ ] Storage kapasitesi doldugunda daha ayrintili hata/log mekanizmasi eklenebilir.
-- [ ] `syncstore.conf` icin yorum satiri ve bos satir parse davranisi daha acik hale getirilebilir.
+- [x] Odev isterlerinde belirtilen SET, GET, DELETE ve LIST komutlari tamamlandi.
+- [x] En az iki istemcinin eszamanli calismasi isteri 3 child client ile gosterildi.
+- [x] Server process'in child client'lar bittikten sonra da surekli calismasi saglandi.
+- [x] Graceful shutdown, async-signal-safe handler mimarisi, keyboard thread ve config thread korunarak tamamlandi.
 
 ## Son Durum
 
-Proje, semaforla korunan IPC anahtar-deger deposu olarak calisir durumdadir. Son duzeltmeyle child kaynak dosyalarindaki eksik header include problemi giderilmis ve derleme sirasinda gorulen implicit declaration uyarilarinin kaynagi kapatilmistir.
+Proje, System V shared memory ve semaphore kullanan eksiksiz bir IPC anahtar-deger deposu olarak calisir durumdadir. SET, GET, DELETE ve LIST komutlari semaphore korumasi altinda uygulanmistir. Uc child client ayni anda calisarak ortak ve kendilerine ait key'ler uzerinde eszamanli islem yapar. Parent server, child client'lar tamamlandiktan sonra kapanmaz; keyboard thread, config thread ve sinyal handler'lari aktif kalir. IPC kaynaklari yalnizca `q`/`Q`, `SIGINT` veya `SIGTERM` ile graceful shutdown akisi icinde temizlenir. Bu haliyle proje odev isterlerini basariyla karsilamaktadir.

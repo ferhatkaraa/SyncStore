@@ -30,7 +30,8 @@ void child1_function(int param, int shmid, int semid) {
 /* Child1'in storage üzerinde yapacağı işler */
 void child1_storage_task(int param, SharedData *data, int semid) {
     const int child_id = 1;
-    const char key[] = "ortak_depo";
+    const char shared_key[] = "ortak_depo";
+    const char own_key[] = "child1_key";
     time_t start_time;
     int operation_count = 0;
     int interval;
@@ -56,14 +57,27 @@ void child1_storage_task(int param, SharedData *data, int semid) {
         interval = data->interval1;
         if (interval <= 0) interval = 2;
 
-        /* İlk 30 saniye: yazma işlemi */
-        if (elapsed < 30) {
+        /* Faz 1 (0-20 sn): SET komutunu test et.
+         * Child1 hem kendi key'ini hem de diger child'larla cakisan ortak key'i yazar. */
+        if (elapsed < 20) {
             int value = (int)getpid() + operation_count;
-            storage_write(data, semid, key, value, child_id);
+            storage_write(data, semid, own_key, value, child_id);
+            storage_write(data, semid, shared_key, value + 1000, child_id);
         } 
-        /* Son 30 saniye: okuma işlemi */
+        /* Faz 2 (20-40 sn): GET + LIST komutlarini test et.
+         * LIST, tum shared memory deposunun semaphore altinda tutarli goruntusunu verir. */
+        else if (elapsed < 40) {
+            storage_read(data, semid, own_key, child_id);
+            storage_read(data, semid, shared_key, child_id);
+            storage_list(data, semid, child_id);
+        }
+        /* Faz 3 (40-60 sn): DELETE + LIST komutlarini test et.
+         * Bazen kendi key'i, bazen ortak key silinir; cakisan silmeler race condition
+         * olusturmadan "key bulunamadi" olarak raporlanir. */
         else {
-            storage_read(data, semid, key, child_id);
+            const char *delete_key = (operation_count % 2 == 0) ? own_key : shared_key;
+            storage_delete(data, semid, delete_key, child_id);
+            storage_list(data, semid, child_id);
         }
 
         operation_count++;
